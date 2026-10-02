@@ -7,30 +7,33 @@ import { socialLinks } from '../data/content'
 const links = [
   ['/', 'Home'],
   ['/about', 'About'],
-  ['/programmes', 'What we do'],
+  ['/programmes', 'Programmes'],
   ['/campaigns', 'Campaigns'],
-  ['/events', 'Activities'],
+  ['/activities', 'Activities'],
   ['/get-involved', 'Get involved'],
   ['/contact', 'Contact'],
 ]
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
+
   const navClass = ({ isActive }) =>
-    `relative py-2 text-sm font-bold transition ${
-      isActive ? 'text-emerald-800' : 'text-slate-600 hover:text-emerald-800'
+    `rounded-full px-3 py-2 text-sm font-bold transition-colors ${
+      isActive
+        ? 'bg-emerald-50 text-emerald-800'
+        : 'text-slate-600 hover:bg-white hover:text-emerald-800'
     }`
 
   return (
     <>
       <div className="bg-emerald-950 text-white">
         <div className="container-shell flex min-h-9 items-center justify-between gap-4 py-2 text-[11px] font-semibold text-emerald-50/85">
-          <p>Rooted in uPhongolo. Community upliftment in action.</p>
+          <p>Rooted in Pongola (uPhongolo). Community upliftment in action.</p>
           <a
             href={socialLinks.facebook}
             target="_blank"
             rel="noreferrer"
-            className="hidden items-center gap-1 text-amber-300 hover:text-amber-200 sm:inline-flex"
+            className="hidden items-center gap-1 text-amber-300 transition hover:text-amber-200 sm:inline-flex"
           >
             Official updates <ArrowUpRight size={13} />
           </a>
@@ -38,42 +41,38 @@ export default function Navbar() {
       </div>
 
       <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-[#fbfaf6]/95 backdrop-blur-xl">
-        <div className="container-shell flex min-h-[104px] items-center justify-between gap-5 py-2 sm:min-h-[116px] lg:min-h-[124px]">
+        <div className="container-shell flex min-h-[100px] items-center justify-between gap-5 py-2 lg:min-h-[108px]">
           <Link to="/" onClick={() => setOpen(false)} aria-label="Nqobizitha Thabede Foundation home">
             <Logo />
           </Link>
 
-          <nav className="hidden items-center gap-5 lg:flex">
+          <nav className="hidden items-center gap-1 xl:flex" aria-label="Main navigation">
             {links.map(([to, label]) => (
               <NavLink key={to} to={to} className={navClass}>
-                {({ isActive }) => (
-                  <>
-                    {label}
-                    {isActive && <span className="absolute inset-x-1 -bottom-[32px] h-0.5 rounded-full bg-amber-400" />}
-                  </>
-                )}
+                {label}
               </NavLink>
             ))}
           </nav>
 
-          <div className="hidden lg:block">
+          <div className="hidden xl:block">
             <Link to="/donate" className="btn-primary">
               <Heart size={16} fill="currentColor" /> Support a cause
             </Link>
           </div>
 
           <button
-            aria-label="Toggle navigation"
+            type="button"
+            aria-label={open ? 'Close navigation' : 'Open navigation'}
             aria-expanded={open}
             onClick={() => setOpen(!open)}
-            className="grid h-11 w-11 place-items-center rounded-2xl border border-slate-200 bg-white text-slate-900 lg:hidden"
+            className="grid h-11 w-11 place-items-center rounded-2xl border border-slate-200 bg-white text-slate-900 transition hover:border-emerald-200 hover:text-emerald-800 xl:hidden"
           >
             {open ? <X size={21} /> : <Menu size={21} />}
           </button>
         </div>
 
         {open && (
-          <div className="border-t border-slate-100 bg-[#fbfaf6] lg:hidden">
+          <div className="border-t border-slate-100 bg-[#fbfaf6] xl:hidden">
             <div className="container-shell flex flex-col gap-1 py-4">
               {links.map(([to, label]) => (
                 <NavLink
@@ -81,7 +80,7 @@ export default function Navbar() {
                   to={to}
                   onClick={() => setOpen(false)}
                   className={({ isActive }) =>
-                    `rounded-xl px-3 py-3 text-sm font-bold ${
+                    `rounded-xl px-3 py-3 text-sm font-bold transition ${
                       isActive ? 'bg-emerald-50 text-emerald-800' : 'text-slate-700 hover:bg-white'
                     }`
                   }

@@ -102,7 +102,7 @@ export const campaigns = [
   },
 ]
 
-export const initiatives = [
+export const activities = [
   {
     id: 'boxing',
     title: 'Nqobizitha Boxing Tournament',
@@ -142,7 +142,7 @@ export const communityPromises = [
   {
     icon: Megaphone,
     title: 'Clearer updates',
-    text: 'Keep campaigns, events and opportunities in one place instead of relying on people to find an old social-media post.',
+    text: 'Keep campaigns, activities and opportunities in one place instead of relying on people to find an old social-media post.',
   },
   {
     icon: HandHeart,

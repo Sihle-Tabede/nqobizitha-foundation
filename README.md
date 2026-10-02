@@ -17,7 +17,7 @@ A community-facing frontend prototype for the Nqobizitha Thabede Foundation, bui
 - About
 - What We Do / Programmes
 - Campaigns
-- Activities & Events
+- Activities
 - Get Involved
 - Donate
 - Request Assistance
@@ -62,3 +62,8 @@ A future backend can add:
 - event registration
 - verified impact reporting
 - email/SMS notifications
+
+
+## Typography
+
+The interface uses Manrope with system-font fallbacks for a warm, modern and readable visual style.

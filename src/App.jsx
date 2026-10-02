@@ -6,7 +6,7 @@ import About from './pages/About'
 import Campaigns from './pages/Campaigns'
 import Contact from './pages/Contact'
 import Donate from './pages/Donate'
-import Events from './pages/Events'
+import Activities from './pages/Activities'
 import GetInvolved from './pages/GetInvolved'
 import Home from './pages/Home'
 import Programmes from './pages/Programmes'
@@ -38,7 +38,8 @@ export default function App() {
           <Route path="/about" element={<About />} />
           <Route path="/programmes" element={<Programmes />} />
           <Route path="/campaigns" element={<Campaigns />} />
-          <Route path="/events" element={<Events />} />
+          <Route path="/activities" element={<Activities />} />
+          <Route path="/events" element={<Navigate to="/activities" replace />} />
           <Route path="/get-involved" element={<GetInvolved />} />
           <Route path="/donate" element={<Donate />} />
           <Route path="/request-assistance" element={<RequestAssistance />} />

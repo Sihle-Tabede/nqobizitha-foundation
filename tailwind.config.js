@@ -4,10 +4,10 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        sans: ['Manrope', 'ui-sans-serif', 'system-ui', 'sans-serif'],
       },
       boxShadow: {
-        soft: '0 18px 50px rgba(15, 23, 42, 0.09)',
+        soft: '0 18px 50px rgba(15, 23, 42, 0.08)',
       },
     },
   },

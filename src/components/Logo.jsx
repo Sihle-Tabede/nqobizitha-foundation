@@ -2,8 +2,8 @@ export default function Logo({ light = false, compact = false }) {
   const imageClasses = compact
     ? 'h-14 w-auto sm:h-16'
     : light
-      ? 'h-24 w-auto sm:h-28 lg:h-32'
-      : 'h-20 w-auto sm:h-24 lg:h-28'
+      ? 'h-20 w-auto sm:h-24 lg:h-28'
+      : 'h-16 w-auto sm:h-20 lg:h-[5.5rem]'
 
   return (
     <div
