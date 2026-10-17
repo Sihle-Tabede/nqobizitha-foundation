@@ -8,9 +8,16 @@ Community information about relief, youth opportunities, events, the Nqobizitha 
 
 **The ZIP supplied did not contain a separately stated, official problem statement.** This is a working problem framing inferred from existing content; compare it against the foundation's approved statement before publishing.
 
+## Navigation (latest update)
+
+The site now has a consistent floating navbar: **Home, Our Work, Campaigns, Gallery, and Reflections**. On desktop the five links appear in a centred, animated glass-effect pill at the top, and on mobile/tablet in an icon-and-label dock at the bottom. A visible **Get involved** button and the low-data switch remain in the branded header. The active link follows the current React Router URL; the interaction uses lightweight CSS instead of Next.js or Framer Motion. Other site sections are available from the footer and context links. See `NAVIGATION_UPDATE.md` for detail.
+
 ## Implemented sections
 
-- Home with campaign, gallery and reflection previews, and sourced awards-recipient cards.
+- **Homepage engagement redesign:** three visible action pathways directly below the hero — **See Our Impact** (`/#impact`), **Join a Campaign** (`/campaigns`), and **Become a Volunteer or Partner** (`/get-involved#volunteer`, `/get-involved#partner`). Each points to existing content or a functioning public contact route; no fake completed actions or donation metrics.
+- **Curved homepage gallery:** `src/components/CircularGallery.jsx` adapts the supplied circular-gallery API (`items`, `bend`, `borderRadius`, `scrollSpeed`) and feel using performant CSS transforms instead of OGL. Swipe left/right, click previous/next, or use trackpad horizontal scrolling / Shift+wheel; the carousel wraps around. A centred **Click to explore** button opens `/gallery`.
+- **Accessible gallery fallback:** switches to native horizontal scroll-snap cards for low-data mode and `prefers-reduced-motion`. It does not create a perpetual WebGL/animation loop and respects the existing low-data image suppression.
+- Home retains the campaign, programme, gallery, reflection and sourced awards-recipient information.
 - `/gallery`: six editorial activity/campaign story cards, category filters (All, Campaigns, Boxing, Awards, Activities), native keyboard-accessible dialog, explicit illustrative-image labels, links to published reporting or official channels.
 - `/reflections`: three *editorial* reflections, clearly distinguished from personal testimonials, and a *partial press-sourced* awards recipient archive.
 - `/awards`: existing programme/timeline plus press-sourced 2024 recipient cards.
@@ -18,7 +25,7 @@ Community information about relief, youth opportunities, events, the Nqobizitha 
 - `/privacy`: plain-language online-safety guidance and honest description of prototype limits.
 - `/request-assistance`: safer status page **with no fake confidential intake form**. Points visitors toward verified channels and explains not to post private documents or stories publicly.
 - `/donate`: amount preview only, no financial details and no payment transaction.
-- Existing Contact and Volunteer forms remain **clearly marked local-only demos** (no backend submissions).
+- `/get-involved` now offers an actionable route through the foundation's linked public channels for volunteering or partnerships instead of an unconnected volunteer application form. The Contact form remains a **clearly marked local-only demo** (no backend submissions).
 
 ## Accessibility and affordability
 
@@ -27,7 +34,7 @@ Community information about relief, youth opportunities, events, the Nqobizitha 
 - Gallery details use the native `<dialog>` (Escape to close and browser-provided keyboard focus handling); visible close button.
 - Low-data toggle in the navigation **avoids fetching optional remote images** and retains user preference locally. Browsers advertising `Save-Data` initialise the toggle automatically when no preference is stored.
 - Lazy-loaded stock images with smaller requested widths and quality, compact local WebP/PNG logo; system fonts to avoid third-party font downloads.
-- No paid gallery library, API subscription, tracking scripts, advertising pixels or backend hosting required for this stage.
+- No OGL/WebGL dependency, paid gallery library, API subscription, tracking scripts, advertising pixels or backend hosting required for this stage.
 
 ## Security and privacy boundaries
 
@@ -84,4 +91,4 @@ Current news sources used for the editorials:
 6. Test with real low-end devices, South African mobile connectivity and assistive technologies; review accessibility against WCAG 2.2 AA.
 7. Configure/verify security headers, HTTPS, hosting privacy, backups, CI tests and dependency updates on the actual hosting platform.
 
-For a feature-by-feature roadmap and test notes, see `PROJECT_DIRECTION.md`.
+For homepage changes and gallery interactions see `HOMEPAGE_ENGAGEMENT_UPDATE.md`. For the feature roadmap see `PROJECT_DIRECTION.md`.

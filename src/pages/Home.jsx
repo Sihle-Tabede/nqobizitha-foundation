@@ -8,6 +8,7 @@ import {
   Heart,
   Camera,
   MapPin,
+  Megaphone,
   Medal,
   ShieldCheck,
   Trophy,
@@ -19,9 +20,39 @@ import { Link } from 'react-router-dom'
 import CampaignCard from '../components/CampaignCard'
 import ActivityCard from '../components/ActivityCard'
 import PastWinners from '../components/PastWinners'
+import CircularGallery from '../components/CircularGallery'
 import { reflections, galleryItems } from '../data/stories'
 import SectionHeading from '../components/SectionHeading'
-import { awards2026, campaigns, communityPromises, activities, programmes, socialLinks } from '../data/content'
+import { awards2026, campaigns, activities, programmes, socialLinks } from '../data/content'
+
+const galleryPreview = galleryItems.map(({ id, photo, photoAlt, category, title }) => ({
+  id, image: photo, photoAlt, category, text: title,
+}))
+
+const pathways = [
+  {
+    number: '01', Icon: ShieldCheck, label: 'See Our Impact',
+    title: 'See what community action looks like.',
+    copy: 'Explore campaign purposes, documented activities and recognition stories. We distinguish published evidence from goals still in progress.',
+    primary: { to: '/#impact', text: 'Explore our impact' },
+    theme: 'emerald',
+  },
+  {
+    number: '02', Icon: Megaphone, label: 'Join a Campaign',
+    title: 'Find a cause worth standing behind.',
+    copy: 'Learn what a campaign aims to achieve and use the foundation’s public channels to ask how you can support it.',
+    primary: { to: '/campaigns', text: 'Explore campaigns' },
+    theme: 'amber',
+  },
+  {
+    number: '03', Icon: HandHeart, label: 'Become a Volunteer or Partner',
+    title: 'Your time and skills matter too.',
+    copy: 'Help at events, share professional skills, or explore sponsorships and partnerships with the foundation.',
+    primary: { to: '/get-involved#volunteer', text: 'Become a volunteer' },
+    secondary: { to: '/get-involved#partner', text: 'Explore partnerships' },
+    theme: 'emerald',
+  },
+]
 
 export default function Home() {
   const featured = campaigns[0]
@@ -38,18 +69,19 @@ export default function Home() {
             <div className="human-chip w-fit"><MapPin size={13} /> Pongola (uPhongolo), KwaZulu-Natal</div>
             <p className="mt-7 text-[11px] font-extrabold uppercase tracking-[0.25em] text-amber-300">Community • Youth • Action</p>
             <h1 className="mt-4 text-5xl font-extrabold leading-[0.98] tracking-[-0.045em] sm:text-6xl lg:text-7xl">
-              Rooted in Pongola. <span className="text-amber-300">Built around people.</span>
+              Community grows when <span className="text-amber-300">we show up together.</span>
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-emerald-50/80">
-              A community-driven foundation bringing people together around relief, youth opportunity, education, sport and practical acts of care.
+              From family relief and youth opportunity to boxing and community awards, explore the work, find a cause and take part in building a stronger Pongola.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <Link to="/donate" className="btn-gold"><Heart size={17} fill="currentColor" /> Support a cause</Link>
-              <Link to="/programmes" className="btn-ghost-dark">Explore our programmes <ArrowRight size={16} /></Link>
+              <Link to="/campaigns" className="btn-gold"><Megaphone size={17} aria-hidden="true" /> Join a campaign <ArrowRight size={16} aria-hidden="true" /></Link>
+              <Link to="/#impact" className="btn-ghost-dark">See our impact <ArrowRight size={16} aria-hidden="true" /></Link>
+              <Link to="/get-involved#volunteer" className="inline-flex min-h-11 items-center gap-2 rounded-full px-4 py-2 text-sm font-bold text-amber-200 underline underline-offset-4 hover:text-white">Volunteer or partner <ArrowRight size={15} aria-hidden="true" /></Link>
             </div>
             <div className="mt-9 flex flex-wrap gap-x-6 gap-y-3 text-xs font-bold text-emerald-50/65">
               <span className="inline-flex items-center gap-2"><UsersRound size={15} /> Grassroots community action</span>
-              <span className="inline-flex items-center gap-2"><ShieldCheck size={15} /> Transparent campaign information</span>
+              <span className="inline-flex items-center gap-2"><ShieldCheck size={15} /> Clear goals, no invented impact totals</span>
               <span className="inline-flex items-center gap-2"><HandHeart size={15} /> Simple ways to participate</span>
             </div>
           </div>
@@ -80,22 +112,84 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="relative -mt-1 bg-[#fbfaf6] section-space">
+      {/* Put the three clearest actions directly after the first impression. */}
+      <section id="take-action" className="relative bg-[#fbfaf6] section-space scroll-mt-24" aria-labelledby="take-action-title">
         <div className="container-shell">
-          <SectionHeading
-            eyebrow="Why one shared space matters"
-            title="One place to find the work, follow progress and take part"
-            copy="People should not have to search through old posts to find a campaign, activity or way to help. Bringing the foundation’s work together makes the next step easier to find."
-          />
-          <div className="mt-10 grid gap-5 md:grid-cols-3">
-            {communityPromises.map(({ icon: Icon, title, text }) => (
-              <article key={title} className="card p-7">
-                <div className="grid h-12 w-12 place-items-center rounded-2xl bg-emerald-50 text-emerald-800"><Icon size={22} /></div>
-                <h3 className="mt-5 text-xl font-extrabold tracking-tight">{title}</h3>
-                <p className="mt-3 text-sm leading-7 text-slate-600">{text}</p>
+          <div className="max-w-3xl">
+            <p className="eyebrow">Choose your way in</p>
+            <h2 id="take-action-title" className="section-title">Three meaningful ways to be part of the change.</h2>
+            <p className="section-copy">Whether you are here to understand the work or ready to contribute, start with the step that fits you.</p>
+          </div>
+          <div className="mt-10 grid gap-5 lg:grid-cols-3">
+            {pathways.map(({ number, Icon, label, title, copy, primary, secondary, theme }) => (
+              <article key={number} className="pathway-card group flex flex-col rounded-[1.75rem] border border-emerald-950/10 bg-white p-6 shadow-[0_16px_46px_rgba(10,49,37,.06)] sm:p-8">
+                <div className="flex items-center justify-between gap-3">
+                  <span className="text-[11px] font-extrabold uppercase tracking-[.19em] text-emerald-800">{label}</span>
+                  <span className="text-sm font-extrabold text-slate-400" aria-hidden="true">{number}</span>
+                </div>
+                <div className={`mt-6 grid h-14 w-14 place-items-center rounded-2xl ${theme === 'amber' ? 'bg-amber-100 text-amber-800' : 'bg-emerald-100 text-emerald-900'}`}><Icon size={27} aria-hidden="true" /></div>
+                <h3 className="mt-6 text-2xl font-extrabold leading-tight tracking-tight text-slate-950">{title}</h3>
+                <p className="mt-3 flex-1 text-sm leading-7 text-slate-600">{copy}</p>
+                <div className="mt-7 flex flex-col items-start gap-3">
+                  <Link to={primary.to} className="inline-flex min-h-11 items-center gap-2 rounded-full bg-emerald-900 px-5 py-2.5 text-sm font-extrabold text-white transition-colors hover:bg-emerald-700">{primary.text}<ArrowRight size={17} aria-hidden="true" /></Link>
+                  {secondary && <Link to={secondary.to} className="inline-flex min-h-11 items-center gap-1.5 text-sm font-extrabold text-emerald-800 underline underline-offset-4 hover:text-emerald-600">{secondary.text}<ArrowRight size={15} aria-hidden="true" /></Link>}
+                </div>
               </article>
             ))}
           </div>
+          <p className="mt-7 text-center text-sm leading-6 text-slate-600"><ShieldCheck size={17} className="mr-1 inline text-emerald-800" aria-hidden="true" /> No account needed to explore. Participation enquiries go through the foundation’s public contact channels, not an unconnected demo form.</p>
+        </div>
+      </section>
+
+      <section id="impact" className="scroll-mt-24 bg-emerald-950 section-space text-white" aria-labelledby="impact-title">
+        <div className="container-shell">
+          <div className="flex flex-col justify-between gap-5 lg:flex-row lg:items-end">
+            <div>
+              <p className="text-[11px] font-extrabold uppercase tracking-[.2em] text-amber-300">See our impact</p>
+              <h2 id="impact-title" className="mt-2 max-w-3xl text-3xl font-extrabold tracking-tight sm:text-4xl">Real community stories. Clear about what is documented.</h2>
+              <p className="mt-4 max-w-2xl text-sm leading-7 text-emerald-50/80">We share what an initiative is about and link to available public reporting. Fundraising totals, attendance and outcomes will only be published as verified figures become available.</p>
+            </div>
+            <Link to="/reflections" className="btn-ghost-dark w-fit">Read community reflections <ArrowRight size={16} aria-hidden="true" /></Link>
+          </div>
+          <div className="mt-9 grid gap-5 md:grid-cols-3">
+            <article className="impact-card rounded-3xl border border-white/15 bg-white/10 p-6">
+              <Trophy className="text-amber-300" size={25} aria-hidden="true" />
+              <p className="mt-5 text-[11px] font-extrabold uppercase tracking-widest text-amber-200">Youth & sport</p>
+              <h3 className="mt-2 text-xl font-extrabold">Nqobizitha Boxing Tournament</h3>
+              <p className="mt-3 text-sm leading-6 text-emerald-50/75">A community sports event covered by independent reporting. Explore the story without presenting stock photos as event documentation.</p>
+              <a href={galleryItems[0].sourceUrl} target="_blank" rel="noopener noreferrer" className="mt-5 inline-flex min-h-11 items-center gap-2 font-extrabold text-amber-200 underline underline-offset-4">Read published coverage <ArrowUpRight size={16} aria-hidden="true" /></a>
+            </article>
+            <article className="impact-card rounded-3xl border border-white/15 bg-white/10 p-6">
+              <Medal className="text-amber-300" size={25} aria-hidden="true" />
+              <p className="mt-5 text-[11px] font-extrabold uppercase tracking-widest text-amber-200">Community recognition</p>
+              <h3 className="mt-2 text-xl font-extrabold">Umuntu Ubongwa Esaphila Awards</h3>
+              <p className="mt-3 text-sm leading-6 text-emerald-50/75">Explore the 2024 reporting and the partial, attributed recipient archive while the full official records are being verified.</p>
+              <Link to="/awards" className="mt-5 inline-flex min-h-11 items-center gap-2 font-extrabold text-amber-200 underline underline-offset-4">Explore award stories <ArrowRight size={16} aria-hidden="true" /></Link>
+            </article>
+            <article className="impact-card rounded-3xl border border-white/15 bg-white/10 p-6">
+              <HandHeart className="text-amber-300" size={25} aria-hidden="true" />
+              <p className="mt-5 text-[11px] font-extrabold uppercase tracking-widest text-amber-200">Practical family relief</p>
+              <h3 className="mt-2 text-xl font-extrabold">Journey to the Promise Land</h3>
+              <p className="mt-3 text-sm leading-6 text-emerald-50/75">Discover the charity walk’s purpose and fundraising target; unverified donations or completed repairs are not counted as achieved impact.</p>
+              <Link to="/campaigns" className="mt-5 inline-flex min-h-11 items-center gap-2 font-extrabold text-amber-200 underline underline-offset-4">Understand the campaign <ArrowRight size={16} aria-hidden="true" /></Link>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      {/* Curved carousel inspired by the supplied CircularGallery component. */}
+      <section className="bg-[#f7f4ea] section-space" aria-labelledby="gallery-preview-title">
+        <div className="container-shell">
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="eyebrow">Campaigns & activities gallery</p>
+            <h2 id="gallery-preview-title" className="mt-3 text-3xl font-extrabold leading-tight tracking-tight text-slate-950 sm:text-4xl">A closer look at the moments that bring us together.</h2>
+            <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-slate-600">Browse boxing, awards, campaigns and youth-focused activities in a curved, swipeable gallery. Photographs are illustrative until approved foundation event images are available.</p>
+          </div>
+          <div className="mt-8"><CircularGallery items={galleryPreview} bend={3} borderRadius={0.07} scrollSpeed={2} /></div>
+          <div className="mt-7 flex justify-center">
+            <Link to="/gallery" className="btn-primary min-w-[210px] px-8 py-3.5 text-center">Click to explore <ArrowRight size={18} aria-hidden="true" /></Link>
+          </div>
+          <p className="mt-3 text-center text-xs text-slate-500">Opens the full gallery with filters and individual activity stories.</p>
         </div>
       </section>
 
@@ -196,23 +290,6 @@ export default function Home() {
         </div>
       </section>
 
-
-      <section className="bg-white section-space">
-        <div className="container-shell">
-          <div className="flex flex-wrap items-end justify-between gap-6">
-            <SectionHeading eyebrow="Campaigns & activities gallery" title="See the work in context" copy="Find the stories behind campaigns, boxing, awards and community activities. Gallery photos are clearly labelled illustrative until foundation-approved event images are available." />
-            <Link to="/gallery" className="btn-secondary w-fit">Browse the gallery <ArrowRight size={16} aria-hidden="true" /></Link>
-          </div>
-          <div className="mt-8 grid gap-5 md:grid-cols-3">
-            {galleryItems.slice(0, 3).map((item) => (
-              <article key={item.id} className="overflow-hidden rounded-3xl border border-slate-200 bg-[#fbfaf6]">
-                <div className="relative h-40 overflow-hidden"><AdaptiveImage src={item.photo} alt={item.photoAlt} className="h-full w-full object-cover" /><span className="absolute bottom-3 left-3 rounded-full bg-emerald-950/90 px-3 py-1 text-[11px] font-bold text-white">Illustrative</span></div>
-                <div className="p-5"><p className="eyebrow">{item.category}</p><h3 className="mt-2 text-lg font-extrabold">{item.title}</h3><p className="mt-2 text-sm leading-6 text-slate-600">{item.kicker}</p></div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
 
       <section className="section-space">
         <div className="container-shell">

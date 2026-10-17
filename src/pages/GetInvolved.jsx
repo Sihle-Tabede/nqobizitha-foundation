@@ -1,8 +1,7 @@
-import { useState } from 'react'
-import { ArrowRight, CheckCircle2, GraduationCap, HandHeart, Heart, Medal, Trophy, UsersRound } from 'lucide-react'
+import { ArrowRight, ArrowUpRight, CheckCircle2, GraduationCap, HandHeart, Heart, Medal, Trophy, UsersRound } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import PageHero from '../components/PageHero'
-import DemoNotice from '../components/DemoNotice'
+import { socialLinks } from '../data/content'
 import SectionHeading from '../components/SectionHeading'
 
 const ways = [
@@ -15,8 +14,6 @@ const ways = [
 ]
 
 export default function GetInvolved() {
-  const [done, setDone] = useState(false)
-
   return (
     <>
       <PageHero
@@ -66,37 +63,22 @@ export default function GetInvolved() {
           </div>
 
           <div className="card p-7 sm:p-9">
-            {done ? (
-              <div className="py-12 text-center">
-                <div className="mx-auto grid h-16 w-16 place-items-center rounded-full bg-emerald-100 text-emerald-700"><CheckCircle2 size={30} /></div>
-                <h2 className="mt-5 text-2xl font-extrabold">Thanks for raising your hand.</h2>
-                <p className="mx-auto mt-3 max-w-md text-sm leading-6 text-slate-600">Thanks for testing the volunteer form. This demo does not send or store your information yet.</p>
-                <button onClick={() => setDone(false)} className="btn-secondary mt-6">Submit another interest</button>
-              </div>
-            ) : (
-              <form autoComplete="off" onSubmit={(e) => { e.preventDefault(); setDone(true) }} className="grid gap-5">
-                <DemoNotice>Prototype only — do not enter private or sensitive details. This form does not submit.</DemoNotice>
-                <div className="grid gap-4 sm:grid-cols-2">
-                  <label className="label">Full name<input className="field" required placeholder="Your full name" /></label>
-                  <label className="label">Contact number<input className="field" type="tel" required placeholder="e.g. 071 234 5678" /></label>
-                </div>
-                <label className="label">Email address<input className="field" type="email" placeholder="you@example.com" /></label>
-                <label className="label">How would you like to help?
-                  <select className="field" defaultValue="" required>
-                    <option value="" disabled>Select an area</option>
-                    <option>Community outreach</option>
-                    <option>Activities and charity walks</option>
-                    <option>Youth development</option>
-                    <option>Sport and boxing activities</option>
-                    <option>Administration or digital support</option>
-                    <option>Professional skills / mentorship</option>
-                  </select>
-                </label>
-                <label className="label">Tell us a little more<textarea className="field min-h-32" placeholder="Your availability, skills, or the kind of support you can offer" /></label>
-                <DemoNotice>Demo only — this form does not send or store information yet.</DemoNotice>
-                <button className="btn-primary w-fit">Preview volunteer interest (not sent)</button>
-              </form>
-            )}
+            <p className="eyebrow">Start with a conversation</p>
+            <h2 className="mt-2 text-2xl font-extrabold tracking-tight">Ready to offer your time?</h2>
+            <p className="mt-4 text-sm leading-7 text-slate-600">Tell the foundation, through its public channels, what you would like to help with: outreach, boxing events, youth mentorship, skills, or practical campaign support.</p>
+            <div className="mt-6 rounded-2xl border border-emerald-100 bg-emerald-50 p-5">
+              <p className="font-extrabold text-emerald-950">Three simple steps</p>
+              <ol className="mt-3 grid gap-3 text-sm leading-6 text-emerald-950/80">
+                <li><strong>1.</strong> Browse the activities or campaigns that interest you.</li>
+                <li><strong>2.</strong> Reach out through an official foundation channel to check opportunities.</li>
+                <li><strong>3.</strong> Agree on a role and practical arrangements with the organisers before attending.</li>
+              </ol>
+            </div>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <a href={socialLinks.facebook} target="_blank" rel="noopener noreferrer" className="btn-primary">Reach out on official Facebook <ArrowUpRight size={16} aria-hidden="true" /></a>
+              <Link to="/activities" className="btn-secondary">Explore activities <ArrowRight size={16} aria-hidden="true" /></Link>
+            </div>
+            <p className="mt-5 text-xs leading-6 text-slate-600">This website does not yet receive volunteer applications. Please do not publish identity numbers, personal documents or banking information in public comments. Confirm account authenticity before sharing contact details privately.</p>
           </div>
         </div>
       </section>
@@ -106,7 +88,11 @@ export default function GetInvolved() {
           <p className="eyebrow">Partnerships & sponsorship</p>
           <h2 className="mt-2 text-3xl font-extrabold tracking-tight">Bring resources, reach or opportunity into the work.</h2>
           <p className="mt-4 max-w-3xl text-sm leading-7 text-slate-600">Businesses, training providers, community organisations and individual sponsors can support activities with funding, equipment, venues, transport, training opportunities or professional services.</p>
-          <Link to="/contact" className="btn-primary mt-6">Start a conversation <ArrowRight size={16} /></Link>
+          <div className="mt-6 flex flex-wrap gap-3">
+            <a href={socialLinks.facebook} target="_blank" rel="noopener noreferrer" className="btn-primary">Contact via official Facebook <ArrowUpRight size={16} aria-hidden="true" /></a>
+            <Link to="/contact" className="btn-secondary">See contact options <ArrowRight size={16} aria-hidden="true" /></Link>
+          </div>
+          <p className="mt-4 text-xs text-slate-600">Avoid sending financial information or identity documents until you have verified the recipient and a secure process is provided.</p>
         </div>
       </section>
 

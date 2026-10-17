@@ -51,7 +51,7 @@ export default function Footer() {
       </div>
 
       <div className="border-t border-white/10">
-        <div className="container-shell flex flex-col gap-2 py-5 text-[11px] text-emerald-50/75 sm:flex-row sm:justify-between">
+        <div className="container-shell footer-bottom-clearance flex flex-col gap-2 py-5 text-[11px] text-emerald-50/75 sm:flex-row sm:justify-between">
           <p>© 2026 Nqobizitha Thabede Foundation.</p>
 <p>Community • Youth • Upliftment</p>
           <p>Photos are illustrative unless credited as event photography.</p>
