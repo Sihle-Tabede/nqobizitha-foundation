@@ -13,7 +13,30 @@ export const socialLinks = {
   instagram: 'https://www.instagram.com/nqoba_thabede/',
   recognitionArticle:
     'https://www.citizen.co.za/zululand-observer/news-headlines/local-news/2024/12/19/pongola-npo-recognises-good-deeds/',
+  awardsFacebook:
+    'https://www.facebook.com/p/Umuntu-Ubongwa-Esaphila-Awards-61563852213218/',
+  educationPetition:
+    'https://www.petitions.com/pongola_deserves_its_tvet_college',
 }
+
+export const awards2026 = {
+  edition: '5th Annual Awards',
+  year: 2026,
+  title: 'Umuntu Ubongwa Esaphila Awards',
+  tagline: 'Honouring people while they are still here to feel the appreciation.',
+  description:
+    'An annual community recognition programme founded by Nqobizitha Thabede to celebrate living individuals, organisations and businesses whose work creates positive impact and community pride.',
+  milestones: [
+    { label: 'Nominees announced', date: '5 October 2026', iso: '2026-10-05' },
+    { label: 'Voting opens', date: '11 October 2026', iso: '2026-10-11' },
+    { label: 'Voting closes', date: '15 November 2026', iso: '2026-11-15' },
+    { label: 'VIP ticket sales close', date: '16 November 2026', iso: '2026-11-16' },
+    { label: 'Awards night', date: '4 December 2026', iso: '2026-12-04' },
+  ],
+  groups: ['Artists', 'Influencers', 'Entrepreneurs', 'Employees', 'Hustlers', 'Community leaders'],
+  recognition: ['Award trophy', 'Recognition certificate', 'Cash prize / cheque where applicable'],
+}
+
 
 export const programmes = [
   {
@@ -116,12 +139,13 @@ export const activities = [
   },
   {
     id: 'recognition-awards',
-    title: 'Community Recognition Initiatives',
-    type: 'Recognition & unity',
-    status: 'Community-led programme',
+    title: 'Umuntu Ubongwa Esaphila Awards',
+    type: 'Annual community awards',
+    status: '5th Annual Awards • 2026',
     location: 'Pongola, KwaZulu-Natal',
     description:
-      'Celebrating local people who promote good deeds, inclusion and unity — making everyday community contribution more visible.',
+      'Celebrating living people whose work, enterprise, creativity and service make a positive difference — while they are still here to receive the appreciation.',
+    to: '/awards',
     image:
       'https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=1400&q=85',
   },

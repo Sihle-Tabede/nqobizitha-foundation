@@ -9,7 +9,7 @@ const ways = [
   [Heart, 'Donate to a cause', 'Support a campaign or contribute to practical community work.', '/donate', 'Support a cause'],
   [HandHeart, 'Volunteer your time', 'Offer practical help, admin support, activity assistance or professional skills.', '#volunteer', 'Volunteer'],
   [UsersRound, 'Sponsor an initiative', 'Partner around a youth activity, relief campaign or community project.', '#partner', 'Partner with us'],
-  [Medal, 'Nominate someone doing good', 'Help the foundation discover community members whose contribution deserves recognition.', '#nominate', 'Learn about nominations'],
+  [Medal, 'Celebrate someone doing good', 'Follow the Umuntu Ubongwa Esaphila Awards and future opportunities to nominate community members whose contribution deserves recognition.', '/awards', 'Explore the awards'],
   [Trophy, 'Join a community activity', 'Take part in sport, boxing, charity walks and other public activities.', '/activities', 'View activities'],
   [GraduationCap, 'Share an opportunity', 'Connect young people with training, education, mentorship or skills-development opportunities.', '/contact', 'Contact us'],
 ]
@@ -112,8 +112,9 @@ export default function GetInvolved() {
       <section id="nominate" className="container-shell pb-8 scroll-mt-28">
         <div className="rounded-[2rem] border border-slate-200 bg-white p-7 sm:p-10">
           <p className="eyebrow">Community recognition</p>
-          <h2 className="mt-2 text-3xl font-extrabold tracking-tight">Know someone whose good work deserves to be seen?</h2>
-          <p className="mt-4 max-w-3xl text-sm leading-7 text-slate-600">A nomination form can collect a short story about the person, what they have done for the community and enough detail for the foundation to verify the nomination.</p>
+          <h2 className="mt-2 text-3xl font-extrabold tracking-tight">Celebrate people while they are still here to feel it.</h2>
+          <p className="mt-4 max-w-3xl text-sm leading-7 text-slate-600">The Umuntu Ubongwa Esaphila Awards recognise living people whose work, enterprise, creativity and service strengthen the community. The 2026 nominees have been announced, with voting opening on 11 October.</p>
+          <Link to="/awards" className="btn-secondary mt-6">Explore the 2026 awards <ArrowRight size={16} /></Link>
         </div>
       </section>
     </>

@@ -1,4 +1,5 @@
-import { ArrowUpRight, CalendarClock } from 'lucide-react'
+import { ArrowRight, ArrowUpRight, CalendarClock, Trophy } from 'lucide-react'
+import { Link } from 'react-router-dom'
 import PageHero from '../components/PageHero'
 import ActivityCard from '../components/ActivityCard'
 import SectionHeading from '../components/SectionHeading'
@@ -18,6 +19,17 @@ export default function Activities() {
           title="More than dates on a calendar"
           copy="Some foundation activities happen annually, while others are created around a specific community need. Confirmed dates can be added here as they are announced."
         />
+
+        <div className="mb-10 grid gap-5 rounded-[2rem] bg-emerald-950 p-7 text-white lg:grid-cols-[auto_1fr_auto] lg:items-center sm:p-9">
+          <div className="grid h-14 w-14 place-items-center rounded-2xl bg-amber-300 text-emerald-950"><Trophy /></div>
+          <div>
+            <p className="text-[11px] font-extrabold uppercase tracking-[0.2em] text-amber-300">5th Annual • 2026</p>
+            <h2 className="mt-2 text-2xl font-extrabold">Umuntu Ubongwa Esaphila Awards</h2>
+            <p className="mt-2 max-w-2xl text-sm leading-6 text-emerald-50/70">Nominees were announced on 5 October. Voting opens 11 October, closes 15 November, and awards night takes place on 4 December 2026.</p>
+          </div>
+          <Link to="/awards" className="btn-gold w-fit">View awards details <ArrowRight size={16} /></Link>
+        </div>
+
         <div className="mt-10 grid gap-6 md:grid-cols-3">
           {activities.map((item) => <ActivityCard key={item.id} activity={item} />)}
         </div>

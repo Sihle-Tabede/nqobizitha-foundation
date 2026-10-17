@@ -18,6 +18,7 @@ A community-facing frontend prototype for the Nqobizitha Thabede Foundation, bui
 - What We Do / Programmes
 - Campaigns
 - Activities
+- Umuntu Ubongwa Esaphila Awards
 - Get Involved
 - Donate
 - Request Assistance
@@ -25,7 +26,7 @@ A community-facing frontend prototype for the Nqobizitha Thabede Foundation, bui
 
 ## Foundation information represented in the prototype
 
-The UI includes the foundation's uPhongolo community focus, disaster and family relief work, Journey to the Promise Land charity walk, community recognition initiatives, the Nqobizitha Boxing Tournament, youth development, education/skills advocacy, and the founder profile.
+The UI includes the foundation's uPhongolo community focus, disaster and family relief work, Journey to the Promise Land charity walk, the Umuntu Ubongwa Esaphila Awards (including the 2026 timeline), the Nqobizitha Boxing Tournament, youth development, education/skills advocacy, the Pongola TVET College petition link, and the founder profile.
 
 The prototype deliberately avoids inventing live fundraising totals, event dates, contact details or beneficiary testimonials. Areas requiring live/verified data are labelled accordingly and can later be connected to a backend.
 
@@ -59,7 +60,8 @@ A future backend can add:
 - payment gateway integration
 - beneficiary/support-request management
 - volunteer and sponsor management
-- event registration
+- awards nominee profiles, voting and results
+- activity/event registration
 - verified impact reporting
 - email/SMS notifications
 

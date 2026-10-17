@@ -1,4 +1,5 @@
 import { ArrowUpRight, MapPin } from 'lucide-react'
+import { Link } from 'react-router-dom'
 import { socialLinks } from '../data/content'
 
 export default function ActivityCard({ activity }) {
@@ -16,7 +17,11 @@ export default function ActivityCard({ activity }) {
         <h3 className="mt-2 text-xl font-extrabold tracking-tight text-slate-950">{activity.title}</h3>
         <p className="mt-3 text-sm leading-6 text-slate-600">{activity.description}</p>
         <p className="mt-5 flex items-center gap-2 text-sm font-semibold text-slate-500"><MapPin size={15} className="text-emerald-700" />{activity.location}</p>
-        <a href={socialLinks.facebook} target="_blank" rel="noreferrer" className="mt-4 inline-flex items-center gap-1 text-sm font-extrabold text-emerald-800">View official updates <ArrowUpRight size={15} /></a>
+        {activity.to ? (
+          <Link to={activity.to} className="mt-4 inline-flex items-center gap-1 text-sm font-extrabold text-emerald-800">Explore this activity <ArrowUpRight size={15} /></Link>
+        ) : (
+          <a href={socialLinks.facebook} target="_blank" rel="noreferrer" className="mt-4 inline-flex items-center gap-1 text-sm font-extrabold text-emerald-800">View official updates <ArrowUpRight size={15} /></a>
+        )}
       </div>
     </article>
   )

@@ -10,13 +10,15 @@ import {
   Medal,
   ShieldCheck,
   Trophy,
+  Vote,
+  CalendarDays,
   UsersRound,
 } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import CampaignCard from '../components/CampaignCard'
 import ActivityCard from '../components/ActivityCard'
 import SectionHeading from '../components/SectionHeading'
-import { campaigns, communityPromises, activities, programmes, socialLinks } from '../data/content'
+import { awards2026, campaigns, communityPromises, activities, programmes, socialLinks } from '../data/content'
 
 export default function Home() {
   const featured = campaigns[0]
@@ -191,6 +193,52 @@ export default function Home() {
         </div>
       </section>
 
+
+      <section className="section-space bg-amber-50/70">
+        <div className="container-shell">
+          <div className="grid overflow-hidden rounded-[2rem] border border-amber-200/70 bg-white shadow-[0_24px_70px_rgba(80,55,10,.08)] lg:grid-cols-[.95fr_1.05fr]">
+            <div className="bg-emerald-950 p-7 text-white sm:p-10 lg:p-12">
+              <p className="text-[11px] font-extrabold uppercase tracking-[0.22em] text-amber-300">2026 community recognition</p>
+              <h2 className="mt-3 text-3xl font-extrabold tracking-tight sm:text-4xl">Umuntu Ubongwa Esaphila Awards</h2>
+              <p className="mt-4 max-w-xl text-sm leading-7 text-emerald-50/75">{awards2026.tagline} The 5th annual edition celebrates artists, entrepreneurs, employees, influencers, hustlers, community leaders and others making a positive difference.</p>
+              <div className="mt-7 flex flex-wrap gap-3">
+                <Link to="/awards" className="btn-gold">Explore the 2026 awards <ArrowRight size={16} /></Link>
+                <a href={socialLinks.awardsFacebook} target="_blank" rel="noreferrer" className="btn-ghost-dark">Official awards page <ArrowUpRight size={15} /></a>
+              </div>
+            </div>
+            <div className="p-7 sm:p-10 lg:p-12">
+              <div className="flex items-center justify-between gap-4">
+                <div>
+                  <p className="eyebrow">Current edition</p>
+                  <h3 className="mt-1 text-2xl font-extrabold tracking-tight text-slate-950">The road to awards night</h3>
+                </div>
+                <div className="grid h-12 w-12 place-items-center rounded-2xl bg-amber-100 text-amber-700"><Trophy size={22} /></div>
+              </div>
+              <div className="mt-6 grid gap-3 sm:grid-cols-2">
+                <div className="rounded-2xl bg-emerald-50 p-4">
+                  <CalendarDays size={18} className="text-emerald-800" />
+                  <p className="mt-3 text-xs font-bold text-slate-500">Nominees announced</p>
+                  <p className="mt-1 font-extrabold text-slate-950">5 October 2026</p>
+                </div>
+                <div className="rounded-2xl bg-amber-50 p-4">
+                  <Vote size={18} className="text-amber-700" />
+                  <p className="mt-3 text-xs font-bold text-slate-500">Voting opens</p>
+                  <p className="mt-1 font-extrabold text-slate-950">11 October 2026</p>
+                </div>
+                <div className="rounded-2xl border border-slate-200 p-4">
+                  <p className="text-xs font-bold text-slate-500">Voting closes</p>
+                  <p className="mt-1 font-extrabold text-slate-950">15 November 2026</p>
+                </div>
+                <div className="rounded-2xl border border-slate-200 p-4">
+                  <p className="text-xs font-bold text-slate-500">Awards night</p>
+                  <p className="mt-1 font-extrabold text-slate-950">4 December 2026</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="section-space">
         <div className="container-shell">
           <div className="relative overflow-hidden rounded-[2rem] bg-emerald-950 p-7 text-white sm:p-10 lg:p-12">
@@ -209,7 +257,7 @@ export default function Home() {
                 {[
                   [Heart, 'Donate', 'Back a campaign or community cause.'],
                   [HandHeart, 'Volunteer', 'Give time, skills or practical support.'],
-                  [Medal, 'Nominate', 'Help recognise someone doing good.'],
+                  [Medal, 'Awards', 'Celebrate local people whose contribution deserves to be seen.'],
                   [UsersRound, 'Sponsor', 'Partner around an event or programme.'],
                 ].map(([Icon, title, text]) => (
                   <div key={title} className="rounded-2xl border border-white/10 bg-white/10 p-5 backdrop-blur">

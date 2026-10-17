@@ -1,8 +1,8 @@
-import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { ArrowRight, ArrowUpRight, CheckCircle2 } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import PageHero from '../components/PageHero'
 import SectionHeading from '../components/SectionHeading'
-import { programmes } from '../data/content'
+import { programmes, socialLinks } from '../data/content'
 
 export default function Programmes() {
   return (
@@ -34,6 +34,9 @@ export default function Programmes() {
                   <h2 className="mt-2 text-2xl font-extrabold tracking-tight">{programme.title}</h2>
                   <p className="mt-3 text-sm leading-7 text-slate-600">{programme.description}</p>
                   <p className="mt-5 flex items-start gap-2 rounded-2xl bg-slate-50 px-4 py-3 text-xs font-semibold leading-5 text-slate-600"><CheckCircle2 size={16} className="mt-0.5 shrink-0 text-emerald-700" />{programme.detail}</p>
+                  {programme.id === 'education' && (
+                    <a href={socialLinks.educationPetition} target="_blank" rel="noreferrer" className="mt-4 inline-flex items-center gap-1 text-sm font-extrabold text-emerald-800">Support the Pongola TVET College petition <ArrowUpRight size={15} /></a>
+                  )}
                 </div>
               </article>
             )

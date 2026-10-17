@@ -10,6 +10,7 @@ const links = [
   ['/programmes', 'Programmes'],
   ['/campaigns', 'Campaigns'],
   ['/activities', 'Activities'],
+  ['/awards', 'Awards'],
   ['/get-involved', 'Get involved'],
   ['/contact', 'Contact'],
 ]
@@ -18,7 +19,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false)
 
   const navClass = ({ isActive }) =>
-    `rounded-full px-3 py-2 text-sm font-bold transition-colors ${
+    `rounded-full px-2.5 py-2 text-[13px] font-bold transition-colors ${
       isActive
         ? 'bg-emerald-50 text-emerald-800'
         : 'text-slate-600 hover:bg-white hover:text-emerald-800'
