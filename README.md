@@ -1,71 +1,87 @@
-# Nqobizitha Thabede Foundation — Frontend Prototype
+# Nqobizitha Thabede Foundation — Accessible Community Website
 
-A community-facing frontend prototype for the Nqobizitha Thabede Foundation, built with React, Vite, JavaScript and Tailwind CSS.
+A React/Vite frontend prototype focused on community upliftment in uPhongolo, KwaZulu-Natal. This is an updated iteration of the source project, **not a live transactional platform**.
 
-## Tech stack
+## Why this website exists (inferred from the supplied project)
 
-- React
-- Vite
-- JavaScript (JSX)
-- Tailwind CSS
-- React Router
-- Lucide React
+Community information about relief, youth opportunities, events, the Nqobizitha Boxing Tournament and the Umuntu Ubongwa Esaphila Awards is dispersed across public posts. Families, young people, volunteers, donors and sponsors need a **clear, affordable, accessible and trustworthy** way to discover activities, understand fundraising purposes, find verified updates and learn how to take part.
 
-## Main prototype pages
+**The ZIP supplied did not contain a separately stated, official problem statement.** This is a working problem framing inferred from existing content; compare it against the foundation's approved statement before publishing.
 
-- Home
-- About
-- What We Do / Programmes
-- Campaigns
-- Activities
-- Umuntu Ubongwa Esaphila Awards
-- Get Involved
-- Donate
-- Request Assistance
-- Contact
+## Implemented sections
 
-## Foundation information represented in the prototype
+- Home with campaign, gallery and reflection previews, and sourced awards-recipient cards.
+- `/gallery`: six editorial activity/campaign story cards, category filters (All, Campaigns, Boxing, Awards, Activities), native keyboard-accessible dialog, explicit illustrative-image labels, links to published reporting or official channels.
+- `/reflections`: three *editorial* reflections, clearly distinguished from personal testimonials, and a *partial press-sourced* awards recipient archive.
+- `/awards`: existing programme/timeline plus press-sourced 2024 recipient cards.
+- `/activities`: linked to the gallery.
+- `/privacy`: plain-language online-safety guidance and honest description of prototype limits.
+- `/request-assistance`: safer status page **with no fake confidential intake form**. Points visitors toward verified channels and explains not to post private documents or stories publicly.
+- `/donate`: amount preview only, no financial details and no payment transaction.
+- Existing Contact and Volunteer forms remain **clearly marked local-only demos** (no backend submissions).
 
-The UI includes the foundation's uPhongolo community focus, disaster and family relief work, Journey to the Promise Land charity walk, the Umuntu Ubongwa Esaphila Awards (including the 2026 timeline), the Nqobizitha Boxing Tournament, youth development, education/skills advocacy, the Pongola TVET College petition link, and the founder profile.
+## Accessibility and affordability
 
-The prototype deliberately avoids inventing live fundraising totals, event dates, contact details or beneficiary testimonials. Areas requiring live/verified data are labelled accordingly and can later be connected to a backend.
+- Accessible headings, labelled controls, accessible filter statuses, keyboard focus indicators and a skip-to-content link.
+- Motion reduction (`prefers-reduced-motion`) is honoured, including section hash navigation.
+- Gallery details use the native `<dialog>` (Escape to close and browser-provided keyboard focus handling); visible close button.
+- Low-data toggle in the navigation **avoids fetching optional remote images** and retains user preference locally. Browsers advertising `Save-Data` initialise the toggle automatically when no preference is stored.
+- Lazy-loaded stock images with smaller requested widths and quality, compact local WebP/PNG logo; system fonts to avoid third-party font downloads.
+- No paid gallery library, API subscription, tracking scripts, advertising pixels or backend hosting required for this stage.
 
-## Run locally
+## Security and privacy boundaries
+
+- No authentication, server-side data collection, database, private photo uploads, payment processing or voting exists in this frontend-only release.
+- Visitors are advised not to share identity documents, precise addresses, banking information or sensitive beneficiary stories publicly.
+- Source data is rendered with React's standard escaped text rendering, **not** injected as raw HTML.
+- External links use `rel="noopener noreferrer"` with `target="_blank"` where relevant.
+- `public/_headers` provides sample Content Security Policy, referrer, MIME and browser-feature restrictions for **Netlify / Cloudflare Pages** hosting. Other hosts require equivalent headers configured manually. Production enforcement must be checked after deployment.
+- Site must be deployed over HTTPS.
+- Dependencies are pinned to the existing lockfile versions instead of `latest`; update them intentionally after review.
+- This release is **not** evidence of completed penetration testing, WCAG conformance, POPIA compliance or deployment security. Those require additional assessment.
+
+## Getting started
+
+Requirements: Node.js 20.19+ or 22.12+, npm.
 
 ```bash
-npm install
+npm ci
 npm run dev
 ```
 
-Open the local URL printed by Vite, normally:
-
-```text
-http://localhost:5173
-```
-
-## Build
+Open the local URL printed by Vite (usually `http://localhost:5173`).
 
 ```bash
 npm run build
+npm run preview
 ```
 
-## Current scope
+The uploaded source archive included Windows native development packages. Those were intentionally **excluded from the deliverable** so `npm ci` will install platform-appropriate dependencies. A clean build could not be executed inside the provided Linux runtime because its local Vite/Rolldown binary was unavailable and fresh downloads were unavailable; JSX source parsing and static checks were performed instead. **Run `npm ci && npm run build` in your environment before deployment.**
 
-This is a frontend-only prototype. Forms display local confirmation states but do not send or store data. Donations do not process payments.
+## Maintaining the gallery and awards records
 
-A future backend can add:
+Content is stored in:
 
-- authentication and admin dashboard
-- campaign and donation tracking
-- payment gateway integration
-- beneficiary/support-request management
-- volunteer and sponsor management
-- awards nominee profiles, voting and results
-- activity/event registration
-- verified impact reporting
-- email/SMS notifications
+- `src/data/stories.js` — editorial reflections, gallery items, partial awards-recipient entries and their references.
+- `src/data/content.js` — campaign goals, programme details, annual awards milestones and official social links.
 
+Replace stock images **only with photos you have the right and consent to publish**. For each photo, collect source/photographer, rights, the date, event description, publish permission and additional guardian authorisation where children are identifiable. Ensure meaningful `photoAlt` text. Never silently represent illustrative imagery as documentary photography.
 
-## Typography
+Past winners listed in this version are **press-caption references only** from the 2024 Zululand Observer article, not a full or officially verified archive. Confirm exact name spelling, category, year and consent before adding official profiles. Do not invent testimonials, donation totals, campaign outcomes, event dates or winner biographies.
 
-The interface uses Manrope with system-font fallbacks for a warm, modern and readable visual style.
+Current news sources used for the editorials:
+
+- [Zululand Observer, 19 December 2024 — Pongola NPO recognises good deeds](https://www.citizen.co.za/zululand-observer/news-headlines/local-news/2024/12/19/pongola-npo-recognises-good-deeds/)
+- [Daily Sun, June 2025 — Nqobizitha tournament reporting](https://www.snl24.com/dailysun/celebs/uzalo-stars-cebo-mthembu-and-thembinkosi-thwala-to-box-in-real-life-at-nqobizitha-tournament-in-kzn-20250608/)
+
+## Before launching real community services
+
+1. Approve the problem statement, foundation identity, official URLs, campaign facts and image permissions.
+2. Provide a private, accessible reporting channel with consent, data-minimisation, documented retention periods, owner accountability and safeguarding for vulnerable beneficiaries (POPIA review).
+3. Build protected server-side submissions with schema validation, rate limits, spam controls, sanitised uploads, encrypted storage in transit/at rest, fine-grained admin access, audit records and tested incident response.
+4. Use an authorised payment processor and verify the beneficiary of payments; never collect card details directly in the frontend.
+5. If running awards voting, define and implement anti-abuse measures, transparency, independent result verification and clear nomination rules.
+6. Test with real low-end devices, South African mobile connectivity and assistive technologies; review accessibility against WCAG 2.2 AA.
+7. Configure/verify security headers, HTTPS, hosting privacy, backups, CI tests and dependency updates on the actual hosting platform.
+
+For a feature-by-feature roadmap and test notes, see `PROJECT_DIRECTION.md`.

@@ -45,7 +45,7 @@ export default function Campaigns() {
           <p className="eyebrow">Campaign updates</p>
           <h2 className="mt-2 text-2xl font-extrabold tracking-tight">Follow the foundation’s official channels for the latest figures.</h2>
           <p className="mt-3 max-w-2xl text-sm leading-7 text-slate-600">Verified campaign progress and new announcements can continue to be shared through the foundation’s official social channels.</p>
-          <a href={socialLinks.facebook} target="_blank" rel="noreferrer" className="btn-primary mt-6">View official updates <ArrowUpRight size={16} /></a>
+          <a href={socialLinks.facebook} target="_blank" rel="noopener noreferrer" className="btn-primary mt-6">View official updates <ArrowUpRight size={16} /></a>
         </div>
       </section>
     </>

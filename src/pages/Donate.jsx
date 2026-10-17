@@ -1,3 +1,4 @@
+import AdaptiveImage from '../components/AdaptiveImage'
 import { useState } from 'react'
 import { CheckCircle2, Footprints, Heart, ShieldCheck, Target } from 'lucide-react'
 import PageHero from '../components/PageHero'
@@ -20,7 +21,7 @@ export default function Donate() {
       <section className="container-shell section-space grid gap-8 lg:grid-cols-[.85fr_1.15fr] lg:items-start">
         <div className="overflow-hidden rounded-[2rem] bg-emerald-950 text-white">
           <div className="relative h-56">
-            <img src="https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&w=1200&q=85" alt="People walking together" className="h-full w-full object-cover" />
+            <AdaptiveImage src="https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&w=900&q=65" alt="Illustrative stock photograph of people walking together" className="h-full w-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-emerald-950 via-emerald-950/35 to-transparent" />
             <div className="absolute bottom-5 left-6 right-6">
               <p className="text-[10px] font-extrabold uppercase tracking-[0.17em] text-amber-300">Journey to the Promise Land</p>
@@ -44,11 +45,11 @@ export default function Donate() {
             <div className="py-14 text-center">
               <div className="mx-auto grid h-16 w-16 place-items-center rounded-full bg-emerald-100 text-emerald-700"><CheckCircle2 size={30} /></div>
               <h2 className="mt-5 text-2xl font-extrabold">Thanks for testing the giving flow</h2>
-              <p className="mx-auto mt-3 max-w-md text-sm leading-6 text-slate-600">No payment was charged and no donor information was stored in this demo.</p>
+              <p className="mx-auto mt-3 max-w-md text-sm leading-6 text-slate-600">No payment was charged. This preview does not ask for or store donor information.</p>
               <button onClick={() => setDone(false)} className="btn-secondary mt-6">Try another amount</button>
             </div>
           ) : (
-            <form onSubmit={(e) => { e.preventDefault(); setDone(true) }}>
+            <form onSubmit={(e) => { e.preventDefault(); Number(amount) >= 10 && Number.isFinite(Number(amount)) && setDone(true) }}>
               <div className="flex items-center gap-3">
                 <div className="grid h-11 w-11 place-items-center rounded-2xl bg-rose-50 text-rose-600"><Heart size={20} fill="currentColor" /></div>
                 <div><p className="text-xs font-bold uppercase tracking-wider text-slate-400">Choose a cause</p><h2 className="text-2xl font-extrabold">Choose your support</h2></div>
@@ -69,7 +70,8 @@ export default function Donate() {
                       type="button"
                       key={value}
                       onClick={() => setAmount(value)}
-                      className={`rounded-2xl border px-3 py-3 text-sm font-extrabold transition ${amount === value ? 'border-emerald-700 bg-emerald-50 text-emerald-800' : 'border-slate-200 bg-white text-slate-600 hover:border-slate-300'}`}
+                      aria-pressed={Number(amount) === value}
+                      className={`rounded-2xl border px-3 py-3 text-sm font-extrabold transition ${Number(amount) === value ? 'border-emerald-700 bg-emerald-50 text-emerald-800' : 'border-slate-200 bg-white text-slate-600 hover:border-slate-300'}`}
                     >
                       R{value}
                     </button>
@@ -77,15 +79,10 @@ export default function Donate() {
                 </div>
               </div>
 
-              <label className="label mt-5 block">Custom amount<input value={amount} onChange={(e) => setAmount(e.target.value)} type="number" min="10" className="field" /></label>
+              <label className="label mt-5 block">Custom amount<input value={amount} onChange={(e) => setAmount(e.target.value)} type="number" min="10" max="1000000" step="1" inputMode="numeric" className="field" /></label>
 
-              <div className="mt-5 grid gap-4 sm:grid-cols-2">
-                <label className="label">Full name<input required className="field" placeholder="Your name" /></label>
-                <label className="label">Email address<input required type="email" className="field" placeholder="you@example.com" /></label>
-              </div>
-
-              <button className="btn-primary mt-6 w-full">Continue with R{amount || 0}</button>
-              <div className="mt-4"><DemoNotice>Demo only — no payment will be processed and no donor details will be stored.</DemoNotice></div>
+              <button className="btn-primary mt-6 w-full">Preview R{amount || 0} support (no payment)</button>
+              <div className="mt-4"><DemoNotice>Preview only — this page will not process a payment. Never send money to an unverified bank account or link.</DemoNotice></div>
             </form>
           )}
         </div>

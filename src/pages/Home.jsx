@@ -1,3 +1,4 @@
+import AdaptiveImage from '../components/AdaptiveImage'
 import {
   ArrowRight,
   ArrowUpRight,
@@ -17,6 +18,8 @@ import {
 import { Link } from 'react-router-dom'
 import CampaignCard from '../components/CampaignCard'
 import ActivityCard from '../components/ActivityCard'
+import PastWinners from '../components/PastWinners'
+import { reflections, galleryItems } from '../data/stories'
 import SectionHeading from '../components/SectionHeading'
 import { awards2026, campaigns, communityPromises, activities, programmes, socialLinks } from '../data/content'
 
@@ -53,9 +56,9 @@ export default function Home() {
 
           <div className="relative mx-auto w-full max-w-xl lg:max-w-none">
             <div className="relative overflow-hidden rounded-[2rem] border border-white/15 bg-white/10 p-2 shadow-[0_35px_100px_rgba(0,0,0,.35)] backdrop-blur">
-              <img
-                src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=1500&q=85"
-                alt="Community volunteers working together"
+              <AdaptiveImage
+                src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=1050&q=70"
+                alt="Illustrative stock photograph of volunteers working together"
                 className="h-[430px] w-full rounded-[1.5rem] object-cover"
               />
               <div className="absolute inset-2 rounded-[1.5rem] bg-gradient-to-t from-emerald-950/85 via-emerald-950/10 to-transparent" />
@@ -113,7 +116,7 @@ export default function Home() {
               return (
                 <article key={programme.id} className="group overflow-hidden rounded-[1.5rem] border border-slate-200 bg-[#fbfaf6]">
                   <div className="relative h-44 overflow-hidden">
-                    <img src={programme.image} alt="" className="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
+                    <AdaptiveImage src={programme.image} alt="" className="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                     <div className="absolute bottom-4 left-4 grid h-10 w-10 place-items-center rounded-xl bg-white text-emerald-800 shadow-lg"><Icon size={19} /></div>
                   </div>
@@ -194,6 +197,38 @@ export default function Home() {
       </section>
 
 
+      <section className="bg-white section-space">
+        <div className="container-shell">
+          <div className="flex flex-wrap items-end justify-between gap-6">
+            <SectionHeading eyebrow="Campaigns & activities gallery" title="See the work in context" copy="Find the stories behind campaigns, boxing, awards and community activities. Gallery photos are clearly labelled illustrative until foundation-approved event images are available." />
+            <Link to="/gallery" className="btn-secondary w-fit">Browse the gallery <ArrowRight size={16} aria-hidden="true" /></Link>
+          </div>
+          <div className="mt-8 grid gap-5 md:grid-cols-3">
+            {galleryItems.slice(0, 3).map((item) => (
+              <article key={item.id} className="overflow-hidden rounded-3xl border border-slate-200 bg-[#fbfaf6]">
+                <div className="relative h-40 overflow-hidden"><AdaptiveImage src={item.photo} alt={item.photoAlt} className="h-full w-full object-cover" /><span className="absolute bottom-3 left-3 rounded-full bg-emerald-950/90 px-3 py-1 text-[11px] font-bold text-white">Illustrative</span></div>
+                <div className="p-5"><p className="eyebrow">{item.category}</p><h3 className="mt-2 text-lg font-extrabold">{item.title}</h3><p className="mt-2 text-sm leading-6 text-slate-600">{item.kicker}</p></div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section-space">
+        <div className="container-shell">
+          <div className="flex flex-wrap items-end justify-between gap-6">
+            <SectionHeading eyebrow="Reflections" title="The purpose behind the programmes" copy="Consider the values at the centre of community support. These are editorial reflections, not invented beneficiary testimonials." />
+            <Link to="/reflections" className="btn-secondary w-fit">Read reflections <ArrowRight size={16} aria-hidden="true" /></Link>
+          </div>
+          <div className="mt-8 grid gap-5 md:grid-cols-3">
+            {reflections.map((reflection) => (
+              <article key={reflection.id} className="card p-6"><p className="eyebrow">{reflection.category}</p><h3 className="mt-3 text-xl font-extrabold">{reflection.title}</h3><p className="mt-3 text-sm leading-7 text-slate-600">{reflection.summary}</p></article>
+            ))}
+          </div>
+          <div className="mt-12"><PastWinners compact /></div>
+        </div>
+      </section>
+
       <section className="section-space bg-amber-50/70">
         <div className="container-shell">
           <div className="grid overflow-hidden rounded-[2rem] border border-amber-200/70 bg-white shadow-[0_24px_70px_rgba(80,55,10,.08)] lg:grid-cols-[.95fr_1.05fr]">
@@ -203,7 +238,7 @@ export default function Home() {
               <p className="mt-4 max-w-xl text-sm leading-7 text-emerald-50/75">{awards2026.tagline} The 5th annual edition celebrates artists, entrepreneurs, employees, influencers, hustlers, community leaders and others making a positive difference.</p>
               <div className="mt-7 flex flex-wrap gap-3">
                 <Link to="/awards" className="btn-gold">Explore the 2026 awards <ArrowRight size={16} /></Link>
-                <a href={socialLinks.awardsFacebook} target="_blank" rel="noreferrer" className="btn-ghost-dark">Official awards page <ArrowUpRight size={15} /></a>
+                <a href={socialLinks.awardsFacebook} target="_blank" rel="noopener noreferrer" className="btn-ghost-dark">Official awards page <ArrowUpRight size={15} /></a>
               </div>
             </div>
             <div className="p-7 sm:p-10 lg:p-12">
@@ -281,8 +316,8 @@ export default function Home() {
               <p className="mt-1 text-sm text-slate-500">Campaign updates and direct community outreach are regularly shared on social media.</p>
             </div>
             <div className="flex flex-wrap gap-3">
-              <a href={socialLinks.facebook} target="_blank" rel="noreferrer" className="btn-primary">Facebook <ArrowUpRight size={15} /></a>
-              <a href={socialLinks.instagram} target="_blank" rel="noreferrer" className="btn-secondary"><Camera size={16} /> Instagram</a>
+              <a href={socialLinks.facebook} target="_blank" rel="noopener noreferrer" className="btn-primary">Facebook <ArrowUpRight size={15} /></a>
+              <a href={socialLinks.instagram} target="_blank" rel="noopener noreferrer" className="btn-secondary"><Camera size={16} /> Instagram</a>
             </div>
           </div>
         </div>

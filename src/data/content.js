@@ -47,7 +47,7 @@ export const programmes = [
       'Mobilising practical help for households facing sudden hardship, including families affected by fires and other emergencies.',
     icon: HouseHeart,
     image:
-      'https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=1400&q=85',
+      'https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=900&q=65',
     detail: 'Emergency response • Family support • Community fundraising',
   },
   {
@@ -58,7 +58,7 @@ export const programmes = [
       'Creating conversations, connections and pathways that help young people access education, skills development and opportunity.',
     icon: UsersRound,
     image:
-      'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1400&q=85',
+      'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=900&q=65',
     detail: 'Skills exposure • Mentorship • Opportunity linkages',
   },
   {
@@ -69,7 +69,7 @@ export const programmes = [
       'Advocating for stronger local access to post-school learning, including the long-term vision of a TVET college and skills centres in uPhongolo.',
     icon: BookOpenCheck,
     image:
-      'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1400&q=85',
+      'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=900&q=65',
     detail: 'TVET access • Skills centres • Youth development',
   },
   {
@@ -80,7 +80,7 @@ export const programmes = [
       'Using sport as a positive gathering point for young people through community activities such as the Nqobizitha Boxing Tournament.',
     icon: Trophy,
     image:
-      'https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?auto=format&fit=crop&w=1400&q=85',
+      'https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?auto=format&fit=crop&w=900&q=65',
     detail: 'Boxing • Recreation • Community building',
   },
   {
@@ -91,7 +91,7 @@ export const programmes = [
       'Recognising people whose everyday actions strengthen unity, service and positive change within Pongola communities.',
     icon: Medal,
     image:
-      'https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&w=1400&q=85',
+      'https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&w=900&q=65',
     detail: 'Local awards • Good deeds • Community unity',
   },
   {
@@ -102,7 +102,7 @@ export const programmes = [
       'Bringing residents, volunteers, donors and sponsors together around causes that need collective attention and practical support.',
     icon: HandHeart,
     image:
-      'https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=1400&q=85',
+      'https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=900&q=65',
     detail: 'Volunteers • Sponsors • Grassroots action',
   },
 ]
@@ -121,7 +121,7 @@ export const campaigns = [
     status: 'Campaign updates shared by the foundation',
     featured: true,
     image:
-      'https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&w=1600&q=85',
+      'https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&w=1200&q=65',
   },
 ]
 
@@ -135,7 +135,7 @@ export const activities = [
     description:
       'A community boxing event designed to keep young people active, connected and engaged in positive local activities.',
     image:
-      'https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?auto=format&fit=crop&w=1400&q=85',
+      'https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?auto=format&fit=crop&w=900&q=65',
   },
   {
     id: 'recognition-awards',
@@ -147,7 +147,7 @@ export const activities = [
       'Celebrating living people whose work, enterprise, creativity and service make a positive difference — while they are still here to receive the appreciation.',
     to: '/awards',
     image:
-      'https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=1400&q=85',
+      'https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=900&q=65',
   },
   {
     id: 'charity-walks',
@@ -158,7 +158,7 @@ export const activities = [
     description:
       'Long-distance walks that turn endurance into awareness and fundraising for families facing serious hardship.',
     image:
-      'https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&w=1400&q=85',
+      'https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&w=900&q=65',
   },
 ]
 

@@ -1,3 +1,4 @@
+import AdaptiveImage from '../components/AdaptiveImage'
 import { ArrowRight, ArrowUpRight, CheckCircle2 } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import PageHero from '../components/PageHero'
@@ -25,7 +26,7 @@ export default function Programmes() {
             return (
               <article key={programme.id} className="group card overflow-hidden">
                 <div className="relative h-52 overflow-hidden">
-                  <img src={programme.image} alt="" className="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
+                  <AdaptiveImage src={programme.image} alt="" className="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
                   <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/70 to-transparent" />
                   <div className="absolute bottom-4 left-4 grid h-12 w-12 place-items-center rounded-2xl bg-white text-emerald-800 shadow-xl"><Icon size={22} /></div>
                 </div>
@@ -35,7 +36,7 @@ export default function Programmes() {
                   <p className="mt-3 text-sm leading-7 text-slate-600">{programme.description}</p>
                   <p className="mt-5 flex items-start gap-2 rounded-2xl bg-slate-50 px-4 py-3 text-xs font-semibold leading-5 text-slate-600"><CheckCircle2 size={16} className="mt-0.5 shrink-0 text-emerald-700" />{programme.detail}</p>
                   {programme.id === 'education' && (
-                    <a href={socialLinks.educationPetition} target="_blank" rel="noreferrer" className="mt-4 inline-flex items-center gap-1 text-sm font-extrabold text-emerald-800">Support the Pongola TVET College petition <ArrowUpRight size={15} /></a>
+                    <a href={socialLinks.educationPetition} target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex items-center gap-1 text-sm font-extrabold text-emerald-800">Support the Pongola TVET College petition <ArrowUpRight size={15} /></a>
                   )}
                 </div>
               </article>

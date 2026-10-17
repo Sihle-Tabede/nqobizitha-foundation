@@ -12,6 +12,7 @@ import {
   Vote,
 } from 'lucide-react'
 import PageHero from '../components/PageHero'
+import PastWinners from '../components/PastWinners'
 import SectionHeading from '../components/SectionHeading'
 import { awards2026, socialLinks } from '../data/content'
 
@@ -62,7 +63,7 @@ export default function Awards() {
             </p>
             <div className="mt-5 flex flex-wrap items-center gap-3">
               <span className="rounded-full bg-amber-100 px-3.5 py-2 text-xs font-extrabold text-amber-900">20+ categories recognised in the 2024 edition</span>
-              <a href={socialLinks.recognitionArticle} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 text-sm font-extrabold text-emerald-800">Read 2024 coverage <ArrowUpRight size={15} /></a>
+              <a href={socialLinks.recognitionArticle} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-sm font-extrabold text-emerald-800">Read 2024 coverage <ArrowUpRight size={15} /></a>
             </div>
             <div className="mt-7 flex flex-wrap gap-2">
               {awards2026.groups.map((group) => (
@@ -81,7 +82,7 @@ export default function Awards() {
                 <div className="grid h-12 w-12 place-items-center rounded-2xl bg-white/10 text-amber-300"><Award size={24} /></div>
               </div>
               <p className="mt-4 text-sm leading-7 text-emerald-50/70">{awards2026.tagline}</p>
-              <a href={socialLinks.awardsFacebook} target="_blank" rel="noreferrer" className="btn-gold mt-7">
+              <a href={socialLinks.awardsFacebook} target="_blank" rel="noopener noreferrer" className="btn-gold mt-7">
                 Follow official awards updates <ArrowUpRight size={15} />
               </a>
             </div>
@@ -158,6 +159,8 @@ export default function Awards() {
         </div>
       </section>
 
+      <section className="bg-white section-space"><div className="container-shell"><PastWinners /></div></section>
+
       <section className="bg-emerald-950 py-14 text-white">
         <div className="container-shell flex flex-col justify-between gap-6 lg:flex-row lg:items-center">
           <div>
@@ -165,7 +168,7 @@ export default function Awards() {
             <h2 className="mt-2 text-3xl font-extrabold tracking-tight">{cycleComplete ? 'The 2026 awards cycle has concluded.' : `${nextMilestone.label} — ${nextMilestone.date}`}</h2>
             <p className="mt-3 max-w-2xl text-sm leading-6 text-emerald-50/70">Use the awards’ public page for confirmed nominee information, voting links, ticket details and event announcements.</p>
           </div>
-          <a href={socialLinks.awardsFacebook} target="_blank" rel="noreferrer" className="btn-gold w-fit">Open awards page <ArrowUpRight size={16} /></a>
+          <a href={socialLinks.awardsFacebook} target="_blank" rel="noopener noreferrer" className="btn-gold w-fit">Open awards page <ArrowUpRight size={16} /></a>
         </div>
       </section>
     </>

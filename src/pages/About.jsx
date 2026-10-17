@@ -1,3 +1,4 @@
+import AdaptiveImage from '../components/AdaptiveImage'
 import { ArrowUpRight, BookOpenCheck, HandHeart, MapPin, Sparkles, Target, UsersRound } from 'lucide-react'
 import PageHero from '../components/PageHero'
 import SectionHeading from '../components/SectionHeading'
@@ -30,10 +31,10 @@ export default function About() {
         </div>
 
         <div className="relative">
-          <img
+          <AdaptiveImage
             className="h-[470px] w-full rounded-[2rem] object-cover shadow-[0_25px_70px_rgba(20,45,31,.14)]"
-            src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=1500&q=85"
-            alt="People volunteering together"
+            src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=1050&q=70"
+            alt="Illustrative stock photograph of people volunteering together"
           />
           <div className="absolute -bottom-7 left-4 right-4 rounded-[1.5rem] bg-emerald-950 p-5 text-white shadow-xl sm:left-8 sm:right-auto sm:max-w-xs">
             <p className="text-[10px] font-extrabold uppercase tracking-[0.18em] text-amber-300">Rooted here</p>
@@ -79,8 +80,8 @@ export default function About() {
               <div className="rounded-2xl border border-white/10 bg-white/10 p-4"><BookOpenCheck size={18} className="text-amber-300" /><p className="mt-3 text-sm font-bold">Education and skills-development advocacy</p></div>
             </div>
             <div className="mt-7 flex flex-wrap gap-3">
-              <a href={socialLinks.facebook} target="_blank" rel="noreferrer" className="btn-gold">Official Facebook <ArrowUpRight size={15} /></a>
-              <a href={socialLinks.instagram} target="_blank" rel="noreferrer" className="btn-ghost-dark">Instagram <ArrowUpRight size={15} /></a>
+              <a href={socialLinks.facebook} target="_blank" rel="noopener noreferrer" className="btn-gold">Official Facebook <ArrowUpRight size={15} /></a>
+              <a href={socialLinks.instagram} target="_blank" rel="noopener noreferrer" className="btn-ghost-dark">Instagram <ArrowUpRight size={15} /></a>
             </div>
           </div>
         </div>
@@ -93,7 +94,7 @@ export default function About() {
             <h3 className="mt-1 text-xl font-extrabold tracking-tight">Celebrating good deeds is part of the work too.</h3>
             <p className="mt-2 max-w-2xl text-sm leading-6 text-slate-500">The foundation’s local recognition activities have highlighted people helping to build inclusion, unity and positive community action in Pongola.</p>
           </div>
-          <a href={socialLinks.recognitionArticle} target="_blank" rel="noreferrer" className="btn-secondary w-fit">Read the local coverage <ArrowUpRight size={16} /></a>
+          <a href={socialLinks.recognitionArticle} target="_blank" rel="noopener noreferrer" className="btn-secondary w-fit">Read the local coverage <ArrowUpRight size={16} /></a>
         </div>
       </section>
 

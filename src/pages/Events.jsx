@@ -28,7 +28,7 @@ export default function Events() {
             <h2 className="text-xl font-black">Waiting for the next confirmed date?</h2>
             <p className="mt-2 text-sm leading-6 text-slate-600">Follow the official foundation page for current announcements. The final system can later support RSVPs, volunteer assignments and reminders.</p>
           </div>
-          <a href={socialLinks.facebook} target="_blank" rel="noreferrer" className="btn-primary w-fit">Check official updates <ArrowUpRight size={16} /></a>
+          <a href={socialLinks.facebook} target="_blank" rel="noopener noreferrer" className="btn-primary w-fit">Check official updates <ArrowUpRight size={16} /></a>
         </div>
       </section>
     </>

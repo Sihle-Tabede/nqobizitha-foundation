@@ -13,11 +13,16 @@ export default function Logo({ light = false, compact = false }) {
           : 'inline-flex items-center'
       }
     >
-      <img
-        src="/images/nqobizitha-foundation-logo.png"
-        alt="Nqobizitha Thabede Foundation logo"
-        className={`${imageClasses} object-contain`}
-      />
+      <picture>
+        <source srcSet="/images/nqobizitha-foundation-logo.webp" type="image/webp" />
+        <img
+          src="/images/nqobizitha-foundation-logo.png"
+          alt="Nqobizitha Thabede Foundation logo"
+          width="550" height="550"
+          decoding="async"
+          className={`${imageClasses} object-contain`}
+        />
+      </picture>
     </div>
   )
 }

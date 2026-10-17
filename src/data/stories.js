@@ -1,0 +1,120 @@
+import { socialLinks } from './content'
+
+// Editorial reflections, not attributed testimony. Do not publish participant quotes without consent.
+export const reflections = [
+  {
+    id: 'dignity',
+    number: '01',
+    category: 'Family relief',
+    title: 'Support begins by listening',
+    summary: 'When a family faces sudden hardship, the first step is to understand what they need, protect their dignity and clearly explain how a community can respond.',
+    prompt: 'How can emergency assistance be both practical and respectful?',
+  },
+  {
+    id: 'opportunity',
+    number: '02',
+    category: 'Youth opportunity',
+    title: 'Access matters as much as ambition',
+    summary: 'Talent exists in uPhongolo. Young people still need pathways to training, recreation, mentoring and opportunity that are affordable and close enough to reach.',
+    prompt: 'What would make skills and education easier to access locally?',
+  },
+  {
+    id: 'recognition',
+    number: '03',
+    category: 'Community recognition',
+    title: 'Give people their flowers while they are here',
+    summary: 'The Umuntu Ubongwa Esaphila Awards place value on recognising living contributors to everyday community progress and celebrating examples that can inspire others.',
+    prompt: 'Who has made a difference in your community, and how?',
+  },
+]
+
+export const pastWinners = [
+  {
+    id: 'gugu-portia',
+    name: 'Gugu Portia',
+    category: 'Best Businesswoman',
+    year: 2024,
+    sourceName: 'Zululand Observer, 19 Dec 2024',
+    sourceUrl: socialLinks.recognitionArticle,
+    evidence: 'Identified in a published photo caption; full official results still need organiser verification.',
+  },
+  {
+    id: 'malume-wabashana',
+    name: 'Malume Wabashana',
+    category: 'Best Social Media Influencer',
+    year: 2024,
+    sourceName: 'Zululand Observer, 19 Dec 2024',
+    sourceUrl: socialLinks.recognitionArticle,
+    evidence: 'Identified in a published photo caption; full official results still need organiser verification.',
+  },
+]
+
+/** Stock photographs are illustrative, NOT pictures of Foundation events or beneficiaries. */
+export const galleryItems = [
+  {
+    id: 'boxing-tournament',
+    category: 'Boxing',
+    title: 'Nqobizitha Boxing Tournament',
+    kicker: 'Youth sport & recreation',
+    description: 'A community boxing initiative creating space for physical activity and positive youth engagement. Published reporting describes the event as running since 2022.',
+    photo: 'https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?auto=format&fit=crop&w=850&q=65',
+    photoAlt: 'Illustrative photograph of boxing gloves and training, not a Nqobizitha tournament photograph',
+    sourceName: 'Daily Sun coverage (2025)',
+    sourceUrl: 'https://www.snl24.com/dailysun/celebs/uzalo-stars-cebo-mthembu-and-thembinkosi-thwala-to-box-in-real-life-at-nqobizitha-tournament-in-kzn-20250608/',
+  },
+  {
+    id: 'awards-celebration',
+    category: 'Awards',
+    title: 'Umuntu Ubongwa Esaphila Awards',
+    kicker: 'Living community recognition',
+    description: 'A celebration of contributions made by individuals, community organisations and businesses. Local reporting covered the third annual awards in 2024.',
+    photo: 'https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=850&q=65',
+    photoAlt: 'Illustrative photograph of a community gathering, not a Nqobizitha awards ceremony',
+    sourceName: 'Zululand Observer coverage (2024)',
+    sourceUrl: socialLinks.recognitionArticle,
+  },
+  {
+    id: 'charity-walk',
+    category: 'Campaigns',
+    title: 'Journey to the Promise Land',
+    kicker: 'Distance with a purpose',
+    description: 'A Pongola-to-Durban charity-walk campaign described by the foundation to mobilise support for two families affected by house fires. Financial outcomes are not shown until verified.',
+    photo: 'https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&w=850&q=65',
+    photoAlt: 'Illustrative photograph of people walking outdoors, not the Foundation charity walk',
+    sourceName: 'Foundation public updates',
+    sourceUrl: socialLinks.facebook,
+  },
+  {
+    id: 'family-care',
+    category: 'Campaigns',
+    title: 'Practical support for families',
+    kicker: 'Care & disaster relief',
+    description: 'Relief and outreach work focuses on helping households through difficult circumstances, with the dignity and privacy of families protected.',
+    photo: 'https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=850&q=65',
+    photoAlt: 'Illustrative photograph of donated supplies, not a documented foundation delivery',
+    sourceName: 'Foundation public updates',
+    sourceUrl: socialLinks.facebook,
+  },
+  {
+    id: 'youth-skills',
+    category: 'Activities',
+    title: 'Pathways for local youth',
+    kicker: 'Education & skills advocacy',
+    description: 'Advocacy for opportunities in and around uPhongolo includes access to post-school learning, training and skills-development pathways.',
+    photo: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=850&q=65',
+    photoAlt: 'Illustrative photograph of students collaborating, not foundation participants',
+    sourceName: 'Community education petition',
+    sourceUrl: socialLinks.educationPetition,
+  },
+  {
+    id: 'celebrating-service',
+    category: 'Awards',
+    title: 'Recognising everyday contributions',
+    kicker: 'People before trophies',
+    description: 'The awards recognise contributions across fields such as business, education, arts and community service. Only verified recipient information is published in the archive.',
+    photo: 'https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&w=850&q=65',
+    photoAlt: 'Illustrative photograph of a group discussion, not awards recipients',
+    sourceName: 'Zululand Observer coverage (2024)',
+    sourceUrl: socialLinks.recognitionArticle,
+  },
+]

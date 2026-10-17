@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  font-family: Manrope, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   color: #162119;
   background: #fbfaf6;
   font-synthesis: none;
@@ -50,4 +50,15 @@ img { display: block; }
 .soft-dots {
   background-image: radial-gradient(rgba(6, 95, 70, .12) 1px, transparent 1px);
   background-size: 18px 18px;
+}
+
+/* Keyboard, motion and readable text safeguards */
+.skip-link { position: fixed; z-index: 100; left: 1rem; top: -6rem; padding: .8rem 1.2rem; background: #fff; color: #064e3b; border: 2px solid #064e3b; border-radius: .75rem; font-weight: 800; }
+.skip-link:focus { top: 1rem; }
+:focus-visible { outline: 3px solid #b45309; outline-offset: 3px; }
+button, a, input, select, textarea { touch-action: manipulation; }
+.gallery-dialog::backdrop { background: rgba(2, 16, 11, .8); }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
 }

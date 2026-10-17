@@ -1,3 +1,4 @@
+import AdaptiveImage from './AdaptiveImage'
 import { ArrowRight, Footprints, Home, Target } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
@@ -12,7 +13,7 @@ export default function CampaignCard({ campaign, featured = false, showDetailsLi
   return (
     <article className={`card overflow-hidden ${featured ? 'lg:grid lg:grid-cols-[1.05fr_.95fr]' : ''}`}>
       <div className={`relative overflow-hidden ${featured ? 'min-h-[320px]' : 'h-56'}`}>
-        <img src={campaign.image} alt="People taking part in a community walk" className="h-full w-full object-cover" />
+        <AdaptiveImage src={campaign.image} alt="Illustrative stock photograph of people on a walk, not an actual campaign photo" className="h-full w-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/75 via-transparent to-transparent" />
         {featured && (
           <div className="absolute left-5 top-5 rounded-full bg-amber-400 px-3 py-1.5 text-[11px] font-extrabold uppercase tracking-wider text-emerald-950">

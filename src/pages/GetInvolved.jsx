@@ -74,7 +74,8 @@ export default function GetInvolved() {
                 <button onClick={() => setDone(false)} className="btn-secondary mt-6">Submit another interest</button>
               </div>
             ) : (
-              <form onSubmit={(e) => { e.preventDefault(); setDone(true) }} className="grid gap-5">
+              <form autoComplete="off" onSubmit={(e) => { e.preventDefault(); setDone(true) }} className="grid gap-5">
+                <DemoNotice>Prototype only — do not enter private or sensitive details. This form does not submit.</DemoNotice>
                 <div className="grid gap-4 sm:grid-cols-2">
                   <label className="label">Full name<input className="field" required placeholder="Your full name" /></label>
                   <label className="label">Contact number<input className="field" type="tel" required placeholder="e.g. 071 234 5678" /></label>
@@ -93,7 +94,7 @@ export default function GetInvolved() {
                 </label>
                 <label className="label">Tell us a little more<textarea className="field min-h-32" placeholder="Your availability, skills, or the kind of support you can offer" /></label>
                 <DemoNotice>Demo only — this form does not send or store information yet.</DemoNotice>
-                <button className="btn-primary w-fit">Submit volunteer interest</button>
+                <button className="btn-primary w-fit">Preview volunteer interest (not sent)</button>
               </form>
             )}
           </div>
