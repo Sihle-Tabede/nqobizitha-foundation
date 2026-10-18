@@ -1,0 +1,137 @@
+[
+  {
+    "image": "1792276273814.jpg",
+    "web_asset": "/images/activities/boxing-ring-action.webp",
+    "dimensions": [
+      1070,
+      1079
+    ],
+    "bytes": 81884
+  },
+  {
+    "image": "1792276270709.jpg",
+    "web_asset": "/images/activities/boxing-bout.webp",
+    "dimensions": [
+      1070,
+      1605
+    ],
+    "bytes": 94058
+  },
+  {
+    "image": "1792276282841.jpg",
+    "web_asset": "/images/activities/boxing-training.webp",
+    "dimensions": [
+      1070,
+      713
+    ],
+    "bytes": 117042
+  },
+  {
+    "image": "1792276230703.jpg",
+    "web_asset": "/images/activities/boxing-gathering.webp",
+    "dimensions": [
+      1066,
+      1599
+    ],
+    "bytes": 91344
+  },
+  {
+    "image": "1792276527818.jpg",
+    "web_asset": "/images/activities/awards-stage.webp",
+    "dimensions": [
+      1070,
+      714
+    ],
+    "bytes": 101026
+  },
+  {
+    "image": "1792276420858.jpg",
+    "web_asset": "/images/activities/awards-recognition.webp",
+    "dimensions": [
+      1070,
+      1604
+    ],
+    "bytes": 120842
+  },
+  {
+    "image": "1792276497576.jpg",
+    "web_asset": "/images/activities/awards-presentation.webp",
+    "dimensions": [
+      1070,
+      1427
+    ],
+    "bytes": 150132
+  },
+  {
+    "image": "1792276515860.jpg",
+    "web_asset": "/images/activities/awards-ceremony.webp",
+    "dimensions": [
+      1070,
+      1427
+    ],
+    "bytes": 167202
+  },
+  {
+    "image": "1792276522920.jpg",
+    "web_asset": "/images/activities/awards-celebration.webp",
+    "dimensions": [
+      1070,
+      1604
+    ],
+    "bytes": 128972
+  },
+  {
+    "image": "1792276415392.jpg",
+    "web_asset": "/images/activities/walk-landscape.webp",
+    "dimensions": [
+      1070,
+      1427
+    ],
+    "bytes": 434568
+  },
+  {
+    "image": "1792276434635.jpg",
+    "web_asset": "/images/activities/walk-community.webp",
+    "dimensions": [
+      1070,
+      1427
+    ],
+    "bytes": 328880
+  },
+  {
+    "image": "1792276787733.jpg",
+    "web_asset": "/images/activities/walk-team.webp",
+    "dimensions": [
+      1070,
+      602
+    ],
+    "bytes": 313352
+  },
+  {
+    "image": "1792276792339.jpg",
+    "web_asset": "/images/activities/walk-road.webp",
+    "dimensions": [
+      540,
+      960
+    ],
+    "bytes": 48530
+  },
+  {
+    "image": "1792276768928.jpg",
+    "web_asset": "/images/activities/walk-group.webp",
+    "dimensions": [
+      928,
+      1650
+    ],
+    "bytes": 115658
+  },
+  {
+    "image": "1792276823060.jpg",
+    "web_asset": "/images/activities/walk-route.webp",
+    "dimensions": [
+      928,
+      1650
+    ],
+    "bytes": 162270
+  }
+]

@@ -1,13 +1,12 @@
 import { ArrowRight, BookOpen, HeartHandshake, MessageCircleHeart } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import PageHero from '../components/PageHero'
-import PastWinners from '../components/PastWinners'
 import { reflections } from '../data/stories'
 
 export default function Reflections() {
   return (
     <>
-      <PageHero eyebrow="Reflections & recognition" title="Behind every activity, there is a reason to keep going." copy="Reflections on community care, youth opportunity and the importance of appreciating living changemakers — with a small, sourced record of past awards recipients." />
+      <PageHero eyebrow="Foundation reflections" title="Behind every act of care is a reason to keep going." copy="Editorial reflections on community care, youth opportunity and recognising everyday changemakers. These are not personal testimonies." />
       <section className="container-shell section-space">
         <div className="grid gap-8 lg:grid-cols-[.7fr_1.3fr] lg:items-start">
           <div className="rounded-[2rem] bg-emerald-950 p-7 text-white sm:p-9">
@@ -32,11 +31,10 @@ export default function Reflections() {
           </div>
         </div>
       </section>
-      <section className="bg-white section-space"><div className="container-shell"><PastWinners /></div></section>
       <section className="container-shell py-16">
         <div className="grid gap-6 rounded-[2rem] bg-amber-50 p-7 sm:p-10 md:grid-cols-[auto_1fr_auto] md:items-center">
           <MessageCircleHeart size={34} className="text-emerald-800" aria-hidden="true" />
-          <div><h2 className="text-2xl font-extrabold">Have a community story worth sharing?</h2><p className="mt-2 text-sm leading-7 text-slate-700">Reach out to discuss a reflection or suggest a recognised changemaker. No public submissions are collected on this prototype.</p></div>
+          <div><h2 className="text-2xl font-extrabold">Have a community story worth sharing?</h2><p className="mt-2 text-sm leading-7 text-slate-700">Reach out to discuss a reflection or suggest a recognised changemaker. To share an idea, use the official contact channels; this page does not accept direct submissions.</p></div>
           <Link className="btn-primary w-fit" to="/contact">Contact the foundation <ArrowRight size={16} aria-hidden="true" /></Link>
         </div>
         <p className="mt-6 flex items-start gap-2 text-sm leading-6 text-slate-600"><HeartHandshake size={18} className="mt-1 shrink-0 text-emerald-800" aria-hidden="true" />We will not display names, faces or private family stories as testimonials without appropriate consent and approval.</p>

@@ -8,24 +8,42 @@ Community information about relief, youth opportunities, events, the Nqobizitha 
 
 **The ZIP supplied did not contain a separately stated, official problem statement.** This is a working problem framing inferred from existing content; compare it against the foundation's approved statement before publishing.
 
-## Navigation (latest update)
+## Navigation and page structure (October 2026 revision)
 
-The site now has a consistent floating navbar: **Home, Our Work, Campaigns, Gallery, and Reflections**. On desktop the five links appear in a centred, animated glass-effect pill at the top, and on mobile/tablet in an icon-and-label dock at the bottom. A visible **Get involved** button and the low-data switch remain in the branded header. The active link follows the current React Router URL; the interaction uses lightweight CSS instead of Next.js or Framer Motion. Other site sections are available from the footer and context links. See `NAVIGATION_UPDATE.md` for detail.
+The floating navbar now offers **Home, About, Our Work, Campaigns, Gallery, Awards, and Reflections**. A separate **Get involved** action and the low-data switch remain in the header. The active tab follows React Router's current pathname and works after reload and Back/Forward. On small devices, the seven routes use short text labels and icons above the bottom edge.
 
-## Implemented sections
+The **simplified homepage** features its core engagement sections:
 
-- **Homepage engagement redesign:** three visible action pathways directly below the hero — **See Our Impact** (`/#impact`), **Join a Campaign** (`/campaigns`), and **Become a Volunteer or Partner** (`/get-involved#volunteer`, `/get-involved#partner`). Each points to existing content or a functioning public contact route; no fake completed actions or donation metrics.
-- **Curved homepage gallery:** `src/components/CircularGallery.jsx` adapts the supplied circular-gallery API (`items`, `bend`, `borderRadius`, `scrollSpeed`) and feel using performant CSS transforms instead of OGL. Swipe left/right, click previous/next, or use trackpad horizontal scrolling / Shift+wheel; the carousel wraps around. A centred **Click to explore** button opens `/gallery`.
-- **Accessible gallery fallback:** switches to native horizontal scroll-snap cards for low-data mode and `prefers-reduced-motion`. It does not create a perpetual WebGL/animation loop and respects the existing low-data image suppression.
-- Home retains the campaign, programme, gallery, reflection and sourced awards-recipient information.
-- `/gallery`: six editorial activity/campaign story cards, category filters (All, Campaigns, Boxing, Awards, Activities), native keyboard-accessible dialog, explicit illustrative-image labels, links to published reporting or official channels.
-- `/reflections`: three *editorial* reflections, clearly distinguished from personal testimonials, and a *partial press-sourced* awards recipient archive.
-- `/awards`: existing programme/timeline plus press-sourced 2024 recipient cards.
-- `/activities`: linked to the gallery.
-- `/privacy`: plain-language online-safety guidance and honest description of prototype limits.
-- `/request-assistance`: safer status page **with no fake confidential intake form**. Points visitors toward verified channels and explains not to post private documents or stories publicly.
-- `/donate`: amount preview only, no financial details and no payment transaction.
-- `/get-involved` now offers an actionable route through the foundation's linked public channels for volunteering or partnerships instead of an unconnected volunteer application form. The Contact form remains a **clearly marked local-only demo** (no backend submissions).
+1. A short introduction to the foundation, with one participation action.
+2. A brief **About** preview linking to `/about`.
+3. The three engagement pathways: **See Our Impact** (`/activities`), **Join a Campaign** (`/campaigns`) and **Volunteer or Partner** (`/get-involved`).
+4. A brief **Awards & Reflections** preview linking to the existing full pages.
+5. A **three-image-at-a-time gallery** with a real CSS grid gap, arrows, swipe, keyboard navigation and a centred **Click to explore** button linking to `/gallery`.
+
+The homepage gallery intentionally shows **only photographs**. No category label, photo badge, caption, story details or dates appear on the image cards. Categories and full editorial descriptions remain on `/gallery`, where the user deliberately chooses to explore. A short note underneath identifies the images as illustrative.
+
+The implementation uses CSS Grid instead of absolute-positioned cards or OGL/WebGL. Three preview images appear on phones and desktops, without overlapping; lighter imagery and no auto-play help reduce mobile data and device load. Low-data mode still suppresses fetching optional photographs, and reduced-motion preferences remain respected.
+
+`src/components/PageHero.jsx` and `src/components/SectionHeading.jsx` now establish centre-aligned titles/subheadings throughout the site. The contact page was simplified: it links directly to the provided public channels rather than asking visitors to complete an unconnected demo form.
+
+The longer programme, campaign, awards, reflections, activities and help pages remain accessible without crowding the homepage. No active route was removed.
+
+## Included pages and boundaries
+
+- `/about`: foundation introduction, purpose, founder and values.
+- `/programmes`, `/activities`, `/campaigns`: detailed work and participation information.
+- `/gallery`: filterable stories and source links (All, Campaigns, Boxing, Awards, Activities); photos are illustrative until approved event photos are supplied.
+- `/reflections`: editorial community reflections (not invented beneficiary testimonials).
+- `/awards`: awards dates, existing awards information and the partial press-sourced 2024 recipient archive.
+- `/get-involved`: volunteering and partnership opportunities via public contact channels.
+- `/contact`: published Facebook and Instagram channels. No fake contact submission.
+- `/privacy`: online safety and the limits of the frontend prototype.
+- `/request-assistance`: no confidential intake form until secure infrastructure exists.
+- `/donate`: preview-only amounts with no payment processing or donor-data collection.
+
+## Frontend administration preview (new)
+
+Open **`/admin`** locally to see the separate administration interface. It includes editable local drafts for campaigns, gallery, awards, reflections and the foundation profile; an overview dashboard; search/filter; JSON export; reset; and a backend security roadmap. It uses browser localStorage only and does not publish changes. **There is no login or real access restriction yet; do not deploy the admin as a production portal.** See `ADMIN_FRONTEND_MVP.md` for the full feature description, usage and future backend integration plan.
 
 ## Accessibility and affordability
 
@@ -33,7 +51,7 @@ The site now has a consistent floating navbar: **Home, Our Work, Campaigns, Gall
 - Motion reduction (`prefers-reduced-motion`) is honoured, including section hash navigation.
 - Gallery details use the native `<dialog>` (Escape to close and browser-provided keyboard focus handling); visible close button.
 - Low-data toggle in the navigation **avoids fetching optional remote images** and retains user preference locally. Browsers advertising `Save-Data` initialise the toggle automatically when no preference is stored.
-- Lazy-loaded stock images with smaller requested widths and quality, compact local WebP/PNG logo; system fonts to avoid third-party font downloads.
+- Lazy-loaded stock images with smaller requested widths and quality, optimized local WebP/PNG approved logo and emblem; system fonts to avoid third-party font downloads.
 - No OGL/WebGL dependency, paid gallery library, API subscription, tracking scripts, advertising pixels or backend hosting required for this stage.
 
 ## Security and privacy boundaries
@@ -91,4 +109,8 @@ Current news sources used for the editorials:
 6. Test with real low-end devices, South African mobile connectivity and assistive technologies; review accessibility against WCAG 2.2 AA.
 7. Configure/verify security headers, HTTPS, hosting privacy, backups, CI tests and dependency updates on the actual hosting platform.
 
-For homepage changes and gallery interactions see `HOMEPAGE_ENGAGEMENT_UPDATE.md`. For the feature roadmap see `PROJECT_DIRECTION.md`.
+For this revision and carousel behaviour see `HOMEPAGE_ENGAGEMENT_UPDATE.md`. For the feature roadmap see `PROJECT_DIRECTION.md`.
+
+## Approved brand identity
+
+The approved final foundation logo now replaces the original website mark in the navbar and footer, with a matching favicon. See `LOGO_INTEGRATION.md` for source images, responsive use, and a note about the shorter foundation name appearing in the approved artwork.

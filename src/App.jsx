@@ -11,16 +11,25 @@ import Contact from './pages/Contact'
 import Donate from './pages/Donate'
 import Activities from './pages/Activities'
 import Awards from './pages/Awards'
+import Nominate from './pages/Nominate'
 import GetInvolved from './pages/GetInvolved'
+import SignIn from './pages/SignIn'
+import SignUp from './pages/SignUp'
+import Account from './pages/Account'
+import VoterEligibility from './pages/VoterEligibility'
+import VotingPreview from './pages/VotingPreview'
+import { useDemoAuth } from './context/DemoAuth'
 import Home from './pages/Home'
 import Programmes from './pages/Programmes'
 import RequestAssistance from './pages/RequestAssistance'
+import AdminWorkspace from './admin/AdminWorkspace'
 
 const pageTitles = {
   '/': 'Home', '/about': 'About', '/programmes': 'Programmes',
   '/campaigns': 'Campaigns', '/activities': 'Activities', '/gallery': 'Gallery',
-  '/reflections': 'Reflections', '/awards': 'Community Awards',
-  '/get-involved': 'Get involved', '/donate': 'Support a cause',
+  '/reflections': 'Reflections', '/awards': 'Community Awards', '/awards/nominate': 'Nomination preview',
+  '/awards/eligibility': 'Voter eligibility guide', '/awards/vote': 'Voting preview',
+  '/get-involved': 'Get involved', '/sign-in': 'Sign In', '/sign-up': 'Sign Up', '/account': 'My account', '/donate': 'Support a cause',
   '/request-assistance': 'Request assistance', '/contact': 'Contact', '/privacy': 'Privacy & safety',
 }
 
@@ -42,6 +51,15 @@ function RouteScroll() {
 }
 
 export default function App() {
+  const { pathname, search } = useLocation()
+  const { user } = useDemoAuth()
+  // Visual-only route gating: not a security boundary. Server authorization is required for launch.
+  if (pathname === '/admin' || pathname.startsWith('/admin/')) {
+    return user?.role === 'admin'
+      ? <AdminWorkspace />
+      : <Navigate to="/sign-in" replace state={{ from: pathname + search }} />
+  }
+
   return (
     <div className="min-h-screen bg-[#fbfaf6] text-slate-950">
       <RouteScroll />
@@ -55,11 +73,17 @@ export default function App() {
           <Route path="/campaigns" element={<Campaigns />} />
           <Route path="/activities" element={<Activities />} />
           <Route path="/awards" element={<Awards />} />
+          <Route path="/awards/eligibility" element={<VoterEligibility />} />
+          <Route path="/awards/vote" element={<VotingPreview />} />
+          <Route path="/awards/nominate" element={user ? <Nominate /> : <Navigate to="/sign-in" replace state={{ from: pathname + search }} />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/reflections" element={<Reflections />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/events" element={<Navigate to="/activities" replace />} />
           <Route path="/get-involved" element={<GetInvolved />} />
+          <Route path="/sign-in" element={<SignIn />} />
+          <Route path="/sign-up" element={<SignUp />} />
+          <Route path="/account" element={user ? (user.role === 'admin' ? <Navigate to="/admin" replace /> : <Account />) : <Navigate to="/sign-in" replace state={{ from: '/account' }} />} />
           <Route path="/donate" element={<Donate />} />
           <Route path="/request-assistance" element={<RequestAssistance />} />
           <Route path="/contact" element={<Contact />} />

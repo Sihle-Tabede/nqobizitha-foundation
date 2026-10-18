@@ -1,21 +1,25 @@
-import { HeartHandshake, Home, Images, Megaphone, Sparkles, WifiOff, HandHeart } from 'lucide-react'
-import { Link, NavLink, useLocation } from 'react-router-dom'
+import { Award, LogIn, LogOut, LayoutDashboard, UserRound, Home, Images, Megaphone, Sparkles, WifiOff, HandHeart, Info } from 'lucide-react'
+import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom'
 import Logo from './Logo'
 import { usePreferences } from '../context/Preferences'
+import { useDemoAuth } from '../context/DemoAuth'
 
-// The five most useful discovery routes stay visible at every screen size.
-// Other important information (awards, contact, privacy, assistance) remains
-// accessible through page links and the footer, without crowding the navbar.
+// Seven direct routes keep About, Awards, and Reflections visible.
+// Contact, donations, and assistance stay accessible through page links and the footer.
 const mainLinks = [
   { to: '/', label: 'Home', shortLabel: 'Home', Icon: Home, associated: ['/'] },
+  { to: '/about', label: 'About', shortLabel: 'About', Icon: Info, associated: ['/about'] },
   { to: '/programmes', label: 'Our Work', shortLabel: 'Work', Icon: HandHeart, associated: ['/programmes', '/activities'] },
-  { to: '/campaigns', label: 'Campaigns', shortLabel: 'Campaigns', Icon: Megaphone, associated: ['/campaigns'] },
+  { to: '/campaigns', label: 'Campaigns', shortLabel: 'Join', Icon: Megaphone, associated: ['/campaigns'] },
   { to: '/gallery', label: 'Gallery', shortLabel: 'Gallery', Icon: Images, associated: ['/gallery'] },
-  { to: '/reflections', label: 'Reflections', shortLabel: 'Stories', Icon: Sparkles, associated: ['/reflections', '/awards'] },
+  { to: '/awards', label: 'Awards', shortLabel: 'Awards', Icon: Award, associated: ['/awards', '/awards/nominate', '/awards/vote', '/awards/eligibility'] },
+  { to: '/reflections', label: 'Reflections', shortLabel: 'Reflect', Icon: Sparkles, associated: ['/reflections'] },
 ]
 
 export default function Navbar() {
   const { pathname } = useLocation()
+  const navigate = useNavigate()
+  const { user, signOut } = useDemoAuth()
   const { lowData, setLowData } = usePreferences()
   const activeIndex = mainLinks.findIndex(({ associated }) => associated.includes(pathname))
 
@@ -42,12 +46,18 @@ export default function Navbar() {
               <WifiOff aria-hidden="true" size={19} />
             </button>
             <NavLink
-              to="/get-involved"
+              to={user ? (user.role === 'admin' ? '/admin' : '/account') : '/sign-in'}
               className={({ isActive }) => `nav-engage-button inline-flex min-h-11 items-center justify-center gap-2 rounded-full px-3.5 py-2.5 text-[13px] font-extrabold shadow-sm transition-colors sm:px-5 ${isActive ? 'bg-emerald-900 text-white' : 'bg-amber-400 text-emerald-950 hover:bg-amber-300'}`}
             >
-              <HeartHandshake size={17} aria-hidden="true" />
-              <span>Get involved</span>
+              {user ? (user.role === 'admin' ? <LayoutDashboard size={17} strokeWidth={2.4} aria-hidden="true" /> : <UserRound size={17} strokeWidth={2.4} aria-hidden="true" />) : <LogIn size={17} strokeWidth={2.4} aria-hidden="true" />}
+              {user?.role === 'member' ? <><span className="sm:hidden">Account</span><span className="hidden sm:inline">My account</span></> : <span>{user?.role === 'admin' ? 'Admin' : 'Sign In'}</span>}
             </NavLink>
+            {user && <button
+              type="button"
+              onClick={() => { signOut(); navigate('/sign-in', { replace: true }) }}
+              className="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-emerald-900/15 bg-white text-emerald-900 hover:bg-emerald-50"
+              aria-label="Sign out" title="Sign out"
+            ><LogOut size={18} aria-hidden="true" /></button>}
           </div>
         </div>
       </header>

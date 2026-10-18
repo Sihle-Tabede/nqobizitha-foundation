@@ -8,7 +8,7 @@ export default function RequestAssistance() {
       <PageHero
         eyebrow="Request assistance"
         title="Asking for help should be simple — and safe."
-        copy="The foundation's community support is centred on practical needs and respect for families. This prototype cannot receive private assistance requests yet."
+        copy="The foundation's community support is centred on practical needs and respect for families. For assistance enquiries, contact the foundation directly through its official channels."
       />
       <section className="container-shell section-space grid gap-8 lg:grid-cols-[.86fr_1.14fr] lg:items-start">
         <div className="rounded-[2rem] bg-emerald-950 p-8 text-white sm:p-10">
@@ -22,7 +22,7 @@ export default function RequestAssistance() {
           <div className="rounded-[2rem] border border-amber-300 bg-amber-50 p-7 sm:p-9" role="status">
             <ShieldAlert size={30} className="text-amber-800" aria-hidden="true" />
             <h2 className="mt-4 text-2xl font-extrabold">Online requests are not open yet</h2>
-            <p className="mt-3 text-sm leading-7 text-amber-950">Please do not type or share your ID number, banking information, exact address, identity documents or sensitive family details on this demonstration website or in a public social-media comment. No request can be submitted here.</p>
+            <p className="mt-3 text-sm leading-7 text-amber-950">Please do not type or share your ID number, banking information, exact address, identity documents or sensitive family details through a public social-media comment. This website does not accept assistance requests.</p>
           </div>
           <div className="card p-7"><div className="flex items-start gap-4"><LockKeyhole size={23} className="mt-1 shrink-0 text-emerald-800" aria-hidden="true" /><div><h3 className="text-lg font-extrabold">What to prepare when a safe channel is available</h3><p className="mt-2 text-sm leading-7 text-slate-600">A brief description of the help needed, the general community area and a safe way for the team to reply. Only share more details if the foundation confirms a private, legitimate process.</p></div></div></div>
           <div className="card p-7"><div className="flex items-start gap-4"><Phone size={23} className="mt-1 shrink-0 text-amber-800" aria-hidden="true" /><div><h3 className="text-lg font-extrabold">Immediate danger or emergency?</h3><p className="mt-2 text-sm leading-7 text-slate-600">The foundation website is not an emergency-response service. Seek help from local emergency services when life or safety is at immediate risk.</p></div></div></div>

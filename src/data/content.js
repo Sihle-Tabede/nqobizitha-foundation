@@ -80,7 +80,7 @@ export const programmes = [
       'Using sport as a positive gathering point for young people through community activities such as the Nqobizitha Boxing Tournament.',
     icon: Trophy,
     image:
-      'https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?auto=format&fit=crop&w=900&q=65',
+      '/images/activities/boxing-ring-action.webp',
     detail: 'Boxing • Recreation • Community building',
   },
   {
@@ -91,7 +91,7 @@ export const programmes = [
       'Recognising people whose everyday actions strengthen unity, service and positive change within Pongola communities.',
     icon: Medal,
     image:
-      'https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&w=900&q=65',
+      '/images/activities/awards-recognition.webp',
     detail: 'Local awards • Good deeds • Community unity',
   },
   {
@@ -102,7 +102,7 @@ export const programmes = [
       'Bringing residents, volunteers, donors and sponsors together around causes that need collective attention and practical support.',
     icon: HandHeart,
     image:
-      'https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=900&q=65',
+      '/images/activities/walk-community.webp',
     detail: 'Volunteers • Sponsors • Grassroots action',
   },
 ]
@@ -121,7 +121,7 @@ export const campaigns = [
     status: 'Campaign updates shared by the foundation',
     featured: true,
     image:
-      'https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&w=1200&q=65',
+      '/images/activities/walk-team.webp',
   },
 ]
 
@@ -135,7 +135,7 @@ export const activities = [
     description:
       'A community boxing event designed to keep young people active, connected and engaged in positive local activities.',
     image:
-      'https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?auto=format&fit=crop&w=900&q=65',
+      '/images/activities/boxing-ring-action.webp',
   },
   {
     id: 'recognition-awards',
@@ -147,7 +147,7 @@ export const activities = [
       'Celebrating living people whose work, enterprise, creativity and service make a positive difference — while they are still here to receive the appreciation.',
     to: '/awards',
     image:
-      'https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=900&q=65',
+      '/images/activities/awards-stage.webp',
   },
   {
     id: 'charity-walks',
@@ -158,7 +158,7 @@ export const activities = [
     description:
       'Long-distance walks that turn endurance into awareness and fundraising for families facing serious hardship.',
     image:
-      'https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&w=900&q=65',
+      '/images/activities/walk-landscape.webp',
   },
 ]
 
